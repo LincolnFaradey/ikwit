@@ -1,0 +1,453 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		7FA13612196B8B62003B071D /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7FA13611196B8B62003B071D /* Foundation.framework */; };
+		7FA13614196B8B62003B071D /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7FA13613196B8B62003B071D /* CoreGraphics.framework */; };
+		7FA13616196B8B62003B071D /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7FA13615196B8B62003B071D /* UIKit.framework */; };
+		7FA1361C196B8B62003B071D /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 7FA1361A196B8B62003B071D /* InfoPlist.strings */; };
+		7FA1361E196B8B62003B071D /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 7FA1361D196B8B62003B071D /* main.m */; };
+		7FA13622196B8B62003B071D /* ANVAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 7FA13621196B8B62003B071D /* ANVAppDelegate.m */; };
+		7FA13624196B8B62003B071D /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7FA13623196B8B62003B071D /* Images.xcassets */; };
+		7FA1362B196B8B62003B071D /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7FA1362A196B8B62003B071D /* XCTest.framework */; };
+		7FA1362C196B8B62003B071D /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7FA13611196B8B62003B071D /* Foundation.framework */; };
+		7FA1362D196B8B62003B071D /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7FA13615196B8B62003B071D /* UIKit.framework */; };
+		7FA13635196B8B62003B071D /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 7FA13633196B8B62003B071D /* InfoPlist.strings */; };
+		7FA13637196B8B62003B071D /* ikwitMVCTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 7FA13636196B8B62003B071D /* ikwitMVCTests.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		7FA1362E196B8B62003B071D /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 7FA13606196B8B62003B071D /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 7FA1360D196B8B62003B071D;
+			remoteInfo = ikwitMVC;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		7FA1360E196B8B62003B071D /* ikwitMVC.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ikwitMVC.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		7FA13611196B8B62003B071D /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		7FA13613196B8B62003B071D /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		7FA13615196B8B62003B071D /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		7FA13619196B8B62003B071D /* ikwitMVC-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "ikwitMVC-Info.plist"; sourceTree = "<group>"; };
+		7FA1361B196B8B62003B071D /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		7FA1361D196B8B62003B071D /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		7FA1361F196B8B62003B071D /* ikwitMVC-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "ikwitMVC-Prefix.pch"; sourceTree = "<group>"; };
+		7FA13620196B8B62003B071D /* ANVAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ANVAppDelegate.h; sourceTree = "<group>"; };
+		7FA13621196B8B62003B071D /* ANVAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ANVAppDelegate.m; sourceTree = "<group>"; };
+		7FA13623196B8B62003B071D /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		7FA13629196B8B62003B071D /* ikwitMVCTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ikwitMVCTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		7FA1362A196B8B62003B071D /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
+		7FA13632196B8B62003B071D /* ikwitMVCTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "ikwitMVCTests-Info.plist"; sourceTree = "<group>"; };
+		7FA13634196B8B62003B071D /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		7FA13636196B8B62003B071D /* ikwitMVCTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ikwitMVCTests.m; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		7FA1360B196B8B62003B071D /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				7FA13614196B8B62003B071D /* CoreGraphics.framework in Frameworks */,
+				7FA13616196B8B62003B071D /* UIKit.framework in Frameworks */,
+				7FA13612196B8B62003B071D /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		7FA13626196B8B62003B071D /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				7FA1362B196B8B62003B071D /* XCTest.framework in Frameworks */,
+				7FA1362D196B8B62003B071D /* UIKit.framework in Frameworks */,
+				7FA1362C196B8B62003B071D /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		7FA13605196B8B62003B071D = {
+			isa = PBXGroup;
+			children = (
+				7FA13617196B8B62003B071D /* ikwitMVC */,
+				7FA13630196B8B62003B071D /* ikwitMVCTests */,
+				7FA13610196B8B62003B071D /* Frameworks */,
+				7FA1360F196B8B62003B071D /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		7FA1360F196B8B62003B071D /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				7FA1360E196B8B62003B071D /* ikwitMVC.app */,
+				7FA13629196B8B62003B071D /* ikwitMVCTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		7FA13610196B8B62003B071D /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				7FA13611196B8B62003B071D /* Foundation.framework */,
+				7FA13613196B8B62003B071D /* CoreGraphics.framework */,
+				7FA13615196B8B62003B071D /* UIKit.framework */,
+				7FA1362A196B8B62003B071D /* XCTest.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		7FA13617196B8B62003B071D /* ikwitMVC */ = {
+			isa = PBXGroup;
+			children = (
+				7FA13620196B8B62003B071D /* ANVAppDelegate.h */,
+				7FA13621196B8B62003B071D /* ANVAppDelegate.m */,
+				7FA13623196B8B62003B071D /* Images.xcassets */,
+				7FA13618196B8B62003B071D /* Supporting Files */,
+			);
+			path = ikwitMVC;
+			sourceTree = "<group>";
+		};
+		7FA13618196B8B62003B071D /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				7FA13619196B8B62003B071D /* ikwitMVC-Info.plist */,
+				7FA1361A196B8B62003B071D /* InfoPlist.strings */,
+				7FA1361D196B8B62003B071D /* main.m */,
+				7FA1361F196B8B62003B071D /* ikwitMVC-Prefix.pch */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		7FA13630196B8B62003B071D /* ikwitMVCTests */ = {
+			isa = PBXGroup;
+			children = (
+				7FA13636196B8B62003B071D /* ikwitMVCTests.m */,
+				7FA13631196B8B62003B071D /* Supporting Files */,
+			);
+			path = ikwitMVCTests;
+			sourceTree = "<group>";
+		};
+		7FA13631196B8B62003B071D /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				7FA13632196B8B62003B071D /* ikwitMVCTests-Info.plist */,
+				7FA13633196B8B62003B071D /* InfoPlist.strings */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		7FA1360D196B8B62003B071D /* ikwitMVC */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 7FA1363A196B8B62003B071D /* Build configuration list for PBXNativeTarget "ikwitMVC" */;
+			buildPhases = (
+				7FA1360A196B8B62003B071D /* Sources */,
+				7FA1360B196B8B62003B071D /* Frameworks */,
+				7FA1360C196B8B62003B071D /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = ikwitMVC;
+			productName = ikwitMVC;
+			productReference = 7FA1360E196B8B62003B071D /* ikwitMVC.app */;
+			productType = "com.apple.product-type.application";
+		};
+		7FA13628196B8B62003B071D /* ikwitMVCTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 7FA1363D196B8B62003B071D /* Build configuration list for PBXNativeTarget "ikwitMVCTests" */;
+			buildPhases = (
+				7FA13625196B8B62003B071D /* Sources */,
+				7FA13626196B8B62003B071D /* Frameworks */,
+				7FA13627196B8B62003B071D /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				7FA1362F196B8B62003B071D /* PBXTargetDependency */,
+			);
+			name = ikwitMVCTests;
+			productName = ikwitMVCTests;
+			productReference = 7FA13629196B8B62003B071D /* ikwitMVCTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		7FA13606196B8B62003B071D /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				CLASSPREFIX = ANV;
+				LastUpgradeCheck = 0510;
+				ORGANIZATIONNAME = "Andrei Nechaev";
+				TargetAttributes = {
+					7FA13628196B8B62003B071D = {
+						TestTargetID = 7FA1360D196B8B62003B071D;
+					};
+				};
+			};
+			buildConfigurationList = 7FA13609196B8B62003B071D /* Build configuration list for PBXProject "ikwitMVC" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = 7FA13605196B8B62003B071D;
+			productRefGroup = 7FA1360F196B8B62003B071D /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				7FA1360D196B8B62003B071D /* ikwitMVC */,
+				7FA13628196B8B62003B071D /* ikwitMVCTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		7FA1360C196B8B62003B071D /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				7FA1361C196B8B62003B071D /* InfoPlist.strings in Resources */,
+				7FA13624196B8B62003B071D /* Images.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		7FA13627196B8B62003B071D /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				7FA13635196B8B62003B071D /* InfoPlist.strings in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		7FA1360A196B8B62003B071D /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				7FA13622196B8B62003B071D /* ANVAppDelegate.m in Sources */,
+				7FA1361E196B8B62003B071D /* main.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		7FA13625196B8B62003B071D /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				7FA13637196B8B62003B071D /* ikwitMVCTests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		7FA1362F196B8B62003B071D /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 7FA1360D196B8B62003B071D /* ikwitMVC */;
+			targetProxy = 7FA1362E196B8B62003B071D /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		7FA1361A196B8B62003B071D /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				7FA1361B196B8B62003B071D /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+		7FA13633196B8B62003B071D /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				7FA13634196B8B62003B071D /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		7FA13638196B8B62003B071D /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+			};
+			name = Debug;
+		};
+		7FA13639196B8B62003B071D /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = YES;
+				ENABLE_NS_ASSERTIONS = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		7FA1363B196B8B62003B071D /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "ikwitMVC/ikwitMVC-Prefix.pch";
+				INFOPLIST_FILE = "ikwitMVC/ikwitMVC-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Debug;
+		};
+		7FA1363C196B8B62003B071D /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "ikwitMVC/ikwitMVC-Prefix.pch";
+				INFOPLIST_FILE = "ikwitMVC/ikwitMVC-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Release;
+		};
+		7FA1363E196B8B62003B071D /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/ikwitMVC.app/ikwitMVC";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+					"$(DEVELOPER_FRAMEWORKS_DIR)",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "ikwitMVC/ikwitMVC-Prefix.pch";
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = "ikwitMVCTests/ikwitMVCTests-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUNDLE_LOADER)";
+				WRAPPER_EXTENSION = xctest;
+			};
+			name = Debug;
+		};
+		7FA1363F196B8B62003B071D /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/ikwitMVC.app/ikwitMVC";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+					"$(DEVELOPER_FRAMEWORKS_DIR)",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "ikwitMVC/ikwitMVC-Prefix.pch";
+				INFOPLIST_FILE = "ikwitMVCTests/ikwitMVCTests-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUNDLE_LOADER)";
+				WRAPPER_EXTENSION = xctest;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		7FA13609196B8B62003B071D /* Build configuration list for PBXProject "ikwitMVC" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				7FA13638196B8B62003B071D /* Debug */,
+				7FA13639196B8B62003B071D /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		7FA1363A196B8B62003B071D /* Build configuration list for PBXNativeTarget "ikwitMVC" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				7FA1363B196B8B62003B071D /* Debug */,
+				7FA1363C196B8B62003B071D /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		7FA1363D196B8B62003B071D /* Build configuration list for PBXNativeTarget "ikwitMVCTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				7FA1363E196B8B62003B071D /* Debug */,
+				7FA1363F196B8B62003B071D /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 7FA13606196B8B62003B071D /* Project object */;
+}
