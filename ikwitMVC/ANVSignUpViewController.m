@@ -7,10 +7,18 @@
 //
 
 #import "ANVSignUpViewController.h"
+#import "User.h"
 
 @interface ANVSignUpViewController ()
 
 @property (strong, nonatomic) IBOutlet UIView *mainView;
+
+@property (weak, nonatomic) IBOutlet UITextField *loginTF;
+@property (weak, nonatomic) IBOutlet UITextField *emailTF;
+@property (weak, nonatomic) IBOutlet UITextField *passwordTF;
+@property (weak, nonatomic) IBOutlet UITextField *conf_passwordTF;
+
+@property (weak, nonatomic) IBOutlet UIButton *sign_up_button;
 
 - (void) keyboardWillShow:(NSNotification *)notification;
 - (void) keyboardWillBeHidden:(NSNotification *)notification;
@@ -31,8 +39,16 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    _loginTF.delegate = self;
+    _emailTF.delegate = self;
+    _passwordTF.delegate = self;
+    _conf_passwordTF.delegate = self;
+    
+    [_sign_up_button addTarget:self
+                        action:@selector(signUpPressed:)
+              forControlEvents:UIControlEventTouchDown];
     // Do any additional setup after loading the view.
-    self.view.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"bg"]];
+    self.view.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"bg2"]];
 }
 
 
@@ -83,7 +99,7 @@
                                                   object:nil];
 }
 
-- (void) keyboardWillShow:(NSNotification *)notification
+- (void)keyboardWillShow:(NSNotification *)notification
 {
     [UIView beginAnimations:nil context:NULL];
     [UIView setAnimationDuration:0.2]; // if you want to slide up the view
@@ -95,9 +111,9 @@
     
    
     if (screenSize.height > 480.0f) {
-        rect.origin.y -= 90;
+        rect.origin.y -= 140;
     } else {
-        rect.origin.y -= 170;
+        rect.origin.y -= 220;
     }
     
     self.mainView.frame = rect;
@@ -105,19 +121,19 @@
     [UIView commitAnimations];
 }
 
-- (void) keyboardWillBeHidden:(NSNotification *)notification
+- (void)keyboardWillBeHidden:(NSNotification *)notification
 {
     [UIView beginAnimations:nil context:NULL];
-    [UIView setAnimationDuration:0.2]; // if you want to slide up the view
+    [UIView setAnimationDuration:0.2];
     [UIView setAnimationBeginsFromCurrentState:YES];
     
     CGRect rect = self.mainView.frame;
     CGSize screenSize = [[UIScreen mainScreen] bounds].size;
     
     if (screenSize.height > 480.0f) {
-        rect.origin.y += 90;
+        rect.origin.y += 140;
     } else {
-        rect.origin.y += 170;
+        rect.origin.y += 220;
     }
     
     self.mainView.frame = rect;
@@ -125,14 +141,58 @@
     [UIView commitAnimations];
 }
 
--(BOOL) textFieldShouldReturn:(UITextField *)textField{
-    if(textField.returnKeyType==UIReturnKeyNext) {
-        UIView *next = [[textField superview] viewWithTag:textField.tag+1];
-        [next becomeFirstResponder];
-    } else if (textField.returnKeyType==UIReturnKeyDone) {
+-(BOOL)textFieldShouldReturn:(UITextField*)textField;
+{
+    NSInteger nextTag = textField.tag + 1;
+    UIResponder* nextResponder = [textField.superview viewWithTag:nextTag];
+    if (nextResponder) {
+        [nextResponder becomeFirstResponder];
+    } else {
         [textField resignFirstResponder];
     }
-    return YES;
+    return NO;
+}
+
+- (void)signUpPressed:(id)sender
+{
+    NSString *login = _loginTF.text;
+    NSString *email = _emailTF.text;
+    NSString *password = _passwordTF.text;
+    NSString *confirm_password = _conf_passwordTF.text;
+    
+    NSLog(@"%@ %@ %@ %@", login, email, password, confirm_password);
+    
+    User *user = [[User alloc] initWithLogin:login
+                                   withEmail:email
+                                withPassword:password
+                          andConfirmPassword:confirm_password];
+    
+    [user sendUserOnServer];
+    
+    NSLog(@"%@", user);
+}
+
+
+#pragma mark - orintation
+-(BOOL)shouldAutorotate
+{
+    
+    return UIInterfaceOrientationMaskPortrait;
+    
+}
+
+-(NSUInteger)supportedInterfaceOrientations
+{
+    
+    return UIInterfaceOrientationMaskPortrait;
+    
+}
+
+- (UIInterfaceOrientation)preferredInterfaceOrientationForPresentation
+{
+    
+    return UIInterfaceOrientationPortrait;
+    
 }
 
 

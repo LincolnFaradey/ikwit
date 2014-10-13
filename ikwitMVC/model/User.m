@@ -47,19 +47,29 @@
             self.password = password;
         }
     }else{
-        @throw [NSException exceptionWithName:@"PasswordException" reason:@"uncampareble passwords" userInfo:nil];
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"email invalid"
+                                                        message:@"Write it again"
+                                                       delegate:self
+                                              cancelButtonTitle:nil
+                                              otherButtonTitles:@"ok", nil];
+        [alert show];
     }
+    
     
     return self;
 }
 
 - (NSDictionary *)dictionary
 {
-    NSDictionary *userD = [NSDictionary dictionaryWithObjectsAndKeys:
-                           self.login, @"login",
-                           self.email, @"email",
-                           self.password, @"password",
-                           nil];
+//    NSDictionary *userD = [NSDictionary dictionaryWithObjectsAndKeys:
+//                           self.login, @"login",
+//                           self.email, @"email",
+//                           self.password, @"password",
+//                           nil];
+    
+    NSDictionary *userD = @{@"login": self.login,
+                            @"email": self.email,
+                            @"password": self.password};
     
     return userD;
 }
@@ -68,6 +78,7 @@
 {
     NSError *writeError = nil;
     NSData *jsonData = [NSJSONSerialization dataWithJSONObject:self.dictionary options:NSJSONWritingPrettyPrinted error:&writeError];
+    
     NSString *jsonString = [[NSString alloc] initWithData:jsonData encoding:NSUTF8StringEncoding];
     NSLog(@"JSON Output: %@", jsonString);
 }
@@ -84,7 +95,12 @@
 - (void)setEmail:(NSString *)email
 {
     if (![self validateEmail:email]){
-        @throw [NSException exceptionWithName:@"EmailException" reason:@"not valid email" userInfo:nil];
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"email invalid"
+                                                        message:@"Write it again"
+                                                       delegate:self
+                                              cancelButtonTitle:nil
+                                              otherButtonTitles:@"ok", nil];
+        [alert show];
     }
     _email = email;
 }
@@ -92,7 +108,12 @@
 - (void)setPassword:(NSString *)password
 {
     if ([password isEqualToString:@""]) {
-        @throw [NSException exceptionWithName:@"PasswordException" reason:@"not valid password" userInfo:nil];
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"email invalid"
+                                                        message:@"Write it again"
+                                                       delegate:self
+                                              cancelButtonTitle:nil
+                                              otherButtonTitles:@"ok", nil];
+        [alert show];
     }
     _password = password;
 }

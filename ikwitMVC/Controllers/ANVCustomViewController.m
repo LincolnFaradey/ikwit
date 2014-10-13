@@ -7,24 +7,30 @@
 //
 
 #import "ANVCustomViewController.h"
-#import "ANVDetailViewController.h"
-#import "AnswerSharedManager.h"
-#import "Answer.h"
+#import "QuestionSharedManager.h"
+#import "ANVDetailedController.h"
+#import "ANVCustomCell.h"
+#import "Question.h"
 
 @interface ANVCustomViewController ()
 
 @property (weak, nonatomic)ANVCustomCell *cell;
+@property (weak, nonatomic)QuestionSharedManager *sharedStore;
+
 
 @end
 
 @implementation ANVCustomViewController
+
 @synthesize cell;
+
+static NSString *customCellID = @"ANVCustomCell";
 
 - (id)initWithStyle:(UITableViewStyle)style
 {
     self = [super initWithStyle:style];
     if (self) {
-        [AnswerSharedManager sharedManager];
+
     }
     return self;
 }
@@ -32,6 +38,16 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    GHContextMenuView* overlay = [[GHContextMenuView alloc] init];
+    overlay.dataSource = self;
+    overlay.delegate = self;
+    
+    UILongPressGestureRecognizer* _longPressRecognizer = [[UILongPressGestureRecognizer alloc] initWithTarget:overlay action:@selector(longPressDetected:)];
+    [self.view addGestureRecognizer:_longPressRecognizer];
+    _sharedStore = [QuestionSharedManager sharedManager];
+    self.tableView.delegate = self;
+    self.tableView.dataSource = self;
+
     //[self.tableView setContentInset:UIEdgeInsetsMake(30,0,0,0)];
     // Uncomment the following line to preserve selection between presentations.
     // self.clearsSelectionOnViewWillAppear = NO;
@@ -39,13 +55,57 @@
     // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
     // self.navigationItem.rightBarButtonItem = self.editButtonItem;
     
+    [_sharedStore fillStore];
+    [_sharedStore fillStore];
+}
+
+// Implementing data source methods
+- (NSInteger) numberOfMenuItems
+{
+    return 3;
+}
+
+-(UIImage*) imageForItemAtIndex:(NSInteger)index
+{
+    NSString* imageName = nil;
+    switch (index) {
+        case 0:
+            imageName = @"facebook";
+            break;
+        case 1:
+            imageName = @"twitter";
+            break;
+        case 2:
+            imageName = @"google-plus";
+            break;
+            
+        default:
+            break;
+    }
+    return [UIImage imageNamed:imageName];
+}
+
+- (void) didSelectItemAtIndex:(NSInteger)selectedIndex forMenuAtPoint:(CGPoint)point
+{
+    NSString* msg = nil;
+    switch (selectedIndex) {
+        case 0:
+            msg = @"Settings Selected";
+            break;
+        case 1:
+            msg = @"Accaunt Selected";
+            break;
+        case 2:
+            msg = @"Sign Out Selected";
+            break;
+            
+        default:
+            break;
+    }
     
-    AnswerSharedManager *answSM = [AnswerSharedManager sharedManager];
-    [answSM fillStore];
-    NSArray *arr = [answSM returnAnswers];
-    NSLog(@"%lu", (unsigned long)[arr count]);
-    Answer *an = arr[0];
-    NSLog(@"%@", an.answerText);
+    UIAlertView* alertView = [[UIAlertView alloc] initWithTitle:nil message:msg delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
+    [alertView show];
+    
 }
 
 - (void)didReceiveMemoryWarning
@@ -65,26 +125,23 @@
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
     // Return the number of rows in the section.
-    return 3;
+    return [_sharedStore length];
 }
 
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    CGRect rect = CGRectMake(100, 100, 100, 100);
-    UIButton *but = [[UIButton alloc] initWithFrame:rect];
-    but.backgroundColor = [UIColor blackColor];
     
-    [cell.contentView addSubview:but];
-    
-    static NSString *customCellID = @"ANVCustomCell";
-    
-    cell = (ANVCustomCell *)[tableView dequeueReusableCellWithIdentifier:customCellID];
-    cell.userName.text = @"User Name";
-    cell.selectionStyle = UITableViewCellSelectionStyleBlue;
-    [cell.likeButton addTarget:self action:@selector(moreButtonPressed:) forControlEvents:UIControlEventTouchUpInside];
-    
-    return cell;
+    ANVCustomCell *loadedCell = (ANVCustomCell *)[tableView dequeueReusableCellWithIdentifier:customCellID];
+    if (loadedCell == nil) {
+        loadedCell = [[ANVCustomCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:customCellID];
+        [loadedCell.likeButton addTarget:self action:@selector(wow:) forControlEvents:UIControlEventTouchUpInside];
+    }
+    Question *answer = [[_sharedStore returnAnswers] objectAtIndex:indexPath.row];
+    loadedCell.userName.text = answer.authorName;
+    loadedCell.likeCounter.text = [NSString stringWithFormat:@"%lu", (unsigned long)answer.likeCounter ];
+    loadedCell.commentsCounter.text = [NSString stringWithFormat:@"%lu", (unsigned long)answer.commentsCounter];
+    return loadedCell;
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -144,21 +201,51 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    ANVDetailViewController *VC = [[ANVDetailViewController alloc] init];
-    [self.navigationController pushViewController:VC animated:YES];
+    ANVDetailedController *dc = [[ANVDetailedController alloc] initWithStyle:UITableViewStylePlain];
+    dc.hidesBottomBarWhenPushed = YES;
+    
+    dc.question = [[[QuestionSharedManager sharedManager] returnAnswers] objectAtIndex:[indexPath row]];
+    
+    [self.navigationController pushViewController:dc animated:YES];
 }
 
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
+//- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
+//{
+//
+//}
+
+
+#pragma mark - Cell button methods
+
+- (void)moreButtonBeenPressed:(id)sender {
+    NSLog(@"More Pressed");
+}
+
+- (void)likeButtonBeenPressed:(id)sender {
+    NSLog(@"Like pressed");
+    cell.likeCounter.text = @"1";
+    [cell updateConstraints];
+}
+
+- (void)favoriteButtonBeenPressed:(id)sender
 {
-   
+    NSLog(@"Favorite pressed");
 }
 
-- (IBAction)moreButtonPressed:(id)sender {
-    NSLog(@"Pressed");
+- (void)userIconBeenPressed:(id)sender
+{
+    NSLog(@"User Icon pressed");
 }
 
-- (void)likeButtonPressed:(id)sender {
-    NSLog(@"like pressed");
+- (void)commentsButtonBeenPressed:(id)sender
+{
+    NSLog(@"Comments pressed");
 }
+
+- (void)wow:(id)sender
+{
+    NSLog(@"1111111111");
+}
+
 
 @end

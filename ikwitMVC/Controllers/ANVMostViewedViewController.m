@@ -37,11 +37,7 @@
 
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    ANVCustomCell *cell = [ANVCustomCell new];
-    // Configure the cell...
-    cell.userName.text = @"User Name";
-    
-    return cell;
+    return [super tableView:tableView cellForRowAtIndexPath:indexPath];
 }
 
 /*

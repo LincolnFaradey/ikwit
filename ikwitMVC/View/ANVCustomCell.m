@@ -9,20 +9,25 @@
 #import "ANVCustomCell.h"
 @class ANVCustomViewController;
 
+@interface ANVCustomCell (){
+    ANVCustomViewController *vc;
+}
+
+@end
+
 @implementation ANVCustomCell
 
 - (id)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier
 {
-    ANVCustomViewController *vc;
     self = [super initWithStyle:style reuseIdentifier:@"ANVCustomCell"];
     if (self) {
-
         self.userName.text = @"Andrey";
         CGRect frame = CGRectMake(240, 170, 30, 30);
         self.likeButton = [[UIButton alloc] initWithFrame:frame];
         _likeButton.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"Like"]];
-        
+        [_likeButton addTarget:vc action:@selector(likeButtonBeenPressed:) forControlEvents:UIControlEventTouchUpInside];
         [self addSubview:_likeButton];
+        
         
         frame = CGRectMake(290, 170, 30, 30);
         self.likeCounter = [[UILabel alloc] initWithFrame:frame];
@@ -32,19 +37,19 @@
         frame = CGRectMake(280, 10, 30, 30);
         self.moreButton = [[UIButton alloc] initWithFrame:frame];
         _moreButton.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"more"]];
-        [_moreButton addTarget:vc action:@selector(moreButtonPressed:) forControlEvents:UIControlEventTouchDown];
+        [_moreButton addTarget:vc action:@selector(moreButtonBeenPressed:) forControlEvents:UIControlEventTouchUpInside];
         [self addSubview:_moreButton];
         
         frame = CGRectMake(200, 170, 30, 30);
         self.favoriteButton = [[UIButton alloc] initWithFrame:frame];
         _favoriteButton.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"Favorite"]];
-        [_favoriteButton addTarget:self action:@selector(beenPressed:) forControlEvents:UIControlEventTouchDown];
+        [_favoriteButton addTarget:vc action:@selector(favoriteButtonBeenPressed:) forControlEvents:UIControlEventTouchUpInside];
         [self addSubview:_favoriteButton];
         
         frame = CGRectMake(10, 170, 30, 30);
         self.commentsButton = [[UIButton alloc] initWithFrame:frame];
         _commentsButton.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"answers"]];
-        [_commentsButton addTarget:self action:@selector(beenPressed:) forControlEvents:UIControlEventTouchDown];
+        [_commentsButton addTarget:vc action:@selector(commentsButtonBeenPressed:) forControlEvents:UIControlEventTouchDown];
         [self addSubview:_commentsButton];
         
         frame = CGRectMake(50, 170, 30, 30);
@@ -60,15 +65,12 @@
         frame = CGRectMake(5, 5, 60, 60);
         self.userIcon = [[UIButton alloc] initWithFrame:frame];
         _userIcon.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"ava"]];
+        [_userIcon addTarget:vc action:@selector(userIconBeenPressed:) forControlEvents:UIControlEventTouchUpInside];
         [self addSubview:_userIcon];
     }
     return self;
 }
 
-- (void)beenPressed:(UIEvent *)event
-{
-    NSLog(@"pressed");
-}
 
 - (void)awakeFromNib
 {
@@ -81,7 +83,6 @@
     self.selectionStyle = UITableViewCellSelectionStyleNone;
     // Configure the view for the selected state
 }
-
 
 
 @end

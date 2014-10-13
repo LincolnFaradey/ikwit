@@ -48,11 +48,12 @@
 
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    ANVCustomCell *cell = [ANVCustomCell new];
-    // Configure the cell...
-    cell.userName.text = @"User name";
-    
-    return cell;
+    return [super tableView:tableView cellForRowAtIndexPath:indexPath];
+}
+
+- (void)moreButtonBeenPressed:(id)sender
+{
+    NSLog(@"More button been pressed from the feed controller");
 }
 
 

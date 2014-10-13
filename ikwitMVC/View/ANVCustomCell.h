@@ -10,15 +10,15 @@
 
 @interface ANVCustomCell : UITableViewCell
 
-@property (nonatomic) UIButton *userIcon;
-@property (nonatomic) UILabel *userName;
+@property (nonatomic, strong) UIButton *userIcon;
+@property (nonatomic, strong) UILabel *userName;
 
-@property (nonatomic) UIButton *moreButton;
-@property (nonatomic) UILabel *contentLabel;
-@property (nonatomic) UILabel *likeCounter;
-@property (nonatomic) UIButton *likeButton;
-@property (nonatomic) UIButton *favoriteButton;
-@property (nonatomic) UIButton *commentsButton;
-@property (nonatomic) UILabel *commentsCounter;
+@property (nonatomic, strong) UIButton *moreButton;
+@property (nonatomic, strong) UILabel *contentLabel;
+@property (nonatomic, strong) UILabel *likeCounter;
+@property (nonatomic, strong) UIButton *likeButton;
+@property (nonatomic, strong) UIButton *favoriteButton;
+@property (nonatomic, strong) UIButton *commentsButton;
+@property (nonatomic, strong) UILabel *commentsCounter;
 
 @end

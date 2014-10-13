@@ -7,16 +7,18 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		7F0C063E19D75B5B00A308CC /* GHContextMenuView.m in Sources */ = {isa = PBXBuildFile; fileRef = 7F0C063D19D75B5B00A308CC /* GHContextMenuView.m */; };
 		7F53665119806DAF000F77D1 /* ANVCustomCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 7F53665019806DAF000F77D1 /* ANVCustomCell.m */; settings = {COMPILER_FLAGS = "-w"; }; };
 		7F536655198070D4000F77D1 /* ANVCustomViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7F536654198070D4000F77D1 /* ANVCustomViewController.m */; };
 		7F5366591989CCA4000F77D1 /* ANVFavoriteViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7F5366581989CCA4000F77D1 /* ANVFavoriteViewController.m */; };
 		7F536660198C5F30000F77D1 /* ANVMostViewedViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7F53665F198C5F30000F77D1 /* ANVMostViewedViewController.m */; };
 		7F536663198C62FD000F77D1 /* ANVFeedViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7F536662198C62FD000F77D1 /* ANVFeedViewController.m */; };
 		7F536666198C6446000F77D1 /* ANVNotificationsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7F536665198C6446000F77D1 /* ANVNotificationsViewController.m */; };
-		7F53666A198C6877000F77D1 /* ANVDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7F536668198C6877000F77D1 /* ANVDetailViewController.m */; };
-		7F53666B198C6877000F77D1 /* ANVDetailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7F536669198C6877000F77D1 /* ANVDetailViewController.xib */; };
-		7F53666E198EF502000F77D1 /* Answer.m in Sources */ = {isa = PBXBuildFile; fileRef = 7F53666D198EF502000F77D1 /* Answer.m */; };
-		7F536671198EFAF9000F77D1 /* AnswerSharedManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 7F536670198EFAF9000F77D1 /* AnswerSharedManager.m */; };
+		7F53666E198EF502000F77D1 /* Question.m in Sources */ = {isa = PBXBuildFile; fileRef = 7F53666D198EF502000F77D1 /* Question.m */; };
+		7F536671198EFAF9000F77D1 /* QuestionSharedManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 7F536670198EFAF9000F77D1 /* QuestionSharedManager.m */; };
+		7F5EEB9419E1FDB9007F514D /* ANVLoginToMain.m in Sources */ = {isa = PBXBuildFile; fileRef = 7F5EEB9319E1FDB9007F514D /* ANVLoginToMain.m */; };
+		7F5EEB9A19E2619B007F514D /* DDIndicator.m in Sources */ = {isa = PBXBuildFile; fileRef = 7F5EEB9919E2619B007F514D /* DDIndicator.m */; };
+		7F73533D19B2587A00A81612 /* ANVAskViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7F73533C19B2587A00A81612 /* ANVAskViewController.m */; };
 		7FA13612196B8B62003B071D /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7FA13611196B8B62003B071D /* Foundation.framework */; };
 		7FA13614196B8B62003B071D /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7FA13613196B8B62003B071D /* CoreGraphics.framework */; };
 		7FA13616196B8B62003B071D /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7FA13615196B8B62003B071D /* UIKit.framework */; };
@@ -33,6 +35,8 @@
 		7FA13650196B95FF003B071D /* ANVLoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7FA1364F196B95FF003B071D /* ANVLoginViewController.m */; };
 		7FA13653196B96F9003B071D /* ANVSignUpViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7FA13652196B96F9003B071D /* ANVSignUpViewController.m */; };
 		7FA13657196CB1C6003B071D /* User.m in Sources */ = {isa = PBXBuildFile; fileRef = 7FA13656196CB1C6003B071D /* User.m */; };
+		7FE3B54A19E118740078B65D /* GCDAsyncSocket.m in Sources */ = {isa = PBXBuildFile; fileRef = 7FE3B54919E118740078B65D /* GCDAsyncSocket.m */; };
+		7FFABC1C19D2479A00983E81 /* ANVDetailedController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7FFABC1B19D2479A00983E81 /* ANVDetailedController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -46,6 +50,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		7F0C063C19D75B5B00A308CC /* GHContextMenuView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GHContextMenuView.h; sourceTree = "<group>"; };
+		7F0C063D19D75B5B00A308CC /* GHContextMenuView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GHContextMenuView.m; sourceTree = "<group>"; };
 		7F53664F19806DAF000F77D1 /* ANVCustomCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ANVCustomCell.h; path = View/ANVCustomCell.h; sourceTree = "<group>"; };
 		7F53665019806DAF000F77D1 /* ANVCustomCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ANVCustomCell.m; path = View/ANVCustomCell.m; sourceTree = "<group>"; };
 		7F536653198070D4000F77D1 /* ANVCustomViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ANVCustomViewController.h; path = Controllers/ANVCustomViewController.h; sourceTree = "<group>"; };
@@ -58,13 +64,16 @@
 		7F536662198C62FD000F77D1 /* ANVFeedViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ANVFeedViewController.m; path = Controllers/ANVFeedViewController.m; sourceTree = "<group>"; };
 		7F536664198C6446000F77D1 /* ANVNotificationsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ANVNotificationsViewController.h; path = Controllers/ANVNotificationsViewController.h; sourceTree = "<group>"; };
 		7F536665198C6446000F77D1 /* ANVNotificationsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ANVNotificationsViewController.m; path = Controllers/ANVNotificationsViewController.m; sourceTree = "<group>"; };
-		7F536667198C6877000F77D1 /* ANVDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ANVDetailViewController.h; path = Controllers/ANVDetailViewController.h; sourceTree = "<group>"; };
-		7F536668198C6877000F77D1 /* ANVDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ANVDetailViewController.m; path = Controllers/ANVDetailViewController.m; sourceTree = "<group>"; };
-		7F536669198C6877000F77D1 /* ANVDetailViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = ANVDetailViewController.xib; path = Controllers/ANVDetailViewController.xib; sourceTree = "<group>"; };
-		7F53666C198EF502000F77D1 /* Answer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Answer.h; path = model/Answer.h; sourceTree = "<group>"; };
-		7F53666D198EF502000F77D1 /* Answer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Answer.m; path = model/Answer.m; sourceTree = "<group>"; };
-		7F53666F198EFAF9000F77D1 /* AnswerSharedManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AnswerSharedManager.h; sourceTree = "<group>"; };
-		7F536670198EFAF9000F77D1 /* AnswerSharedManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AnswerSharedManager.m; sourceTree = "<group>"; };
+		7F53666C198EF502000F77D1 /* Question.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Question.h; path = model/Question.h; sourceTree = "<group>"; };
+		7F53666D198EF502000F77D1 /* Question.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Question.m; path = model/Question.m; sourceTree = "<group>"; };
+		7F53666F198EFAF9000F77D1 /* QuestionSharedManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QuestionSharedManager.h; sourceTree = "<group>"; };
+		7F536670198EFAF9000F77D1 /* QuestionSharedManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QuestionSharedManager.m; sourceTree = "<group>"; };
+		7F5EEB9219E1FDB9007F514D /* ANVLoginToMain.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ANVLoginToMain.h; path = ikwitMVC/CustomSegue/ANVLoginToMain.h; sourceTree = "<group>"; };
+		7F5EEB9319E1FDB9007F514D /* ANVLoginToMain.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ANVLoginToMain.m; path = ikwitMVC/CustomSegue/ANVLoginToMain.m; sourceTree = "<group>"; };
+		7F5EEB9819E2619B007F514D /* DDIndicator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DDIndicator.h; sourceTree = "<group>"; };
+		7F5EEB9919E2619B007F514D /* DDIndicator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DDIndicator.m; sourceTree = "<group>"; };
+		7F73533B19B2587A00A81612 /* ANVAskViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ANVAskViewController.h; path = Controllers/ANVAskViewController.h; sourceTree = "<group>"; };
+		7F73533C19B2587A00A81612 /* ANVAskViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ANVAskViewController.m; path = Controllers/ANVAskViewController.m; sourceTree = "<group>"; };
 		7FA1360E196B8B62003B071D /* ikwitMVC.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ikwitMVC.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7FA13611196B8B62003B071D /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		7FA13613196B8B62003B071D /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -88,6 +97,10 @@
 		7FA13652196B96F9003B071D /* ANVSignUpViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ANVSignUpViewController.m; sourceTree = "<group>"; };
 		7FA13655196CB1C6003B071D /* User.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = User.h; path = model/User.h; sourceTree = "<group>"; };
 		7FA13656196CB1C6003B071D /* User.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = User.m; path = model/User.m; sourceTree = "<group>"; };
+		7FE3B54819E118740078B65D /* GCDAsyncSocket.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GCDAsyncSocket.h; sourceTree = "<group>"; };
+		7FE3B54919E118740078B65D /* GCDAsyncSocket.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GCDAsyncSocket.m; sourceTree = "<group>"; };
+		7FFABC1A19D2479A00983E81 /* ANVDetailedController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ANVDetailedController.h; path = ikwitMVC/Controllers/ANVDetailedController.h; sourceTree = "<group>"; };
+		7FFABC1B19D2479A00983E81 /* ANVDetailedController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ANVDetailedController.m; path = ikwitMVC/Controllers/ANVDetailedController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -117,6 +130,7 @@
 		7F53664B19806D0A000F77D1 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				7FA1364C196B8E37003B071D /* Storyboard.storyboard */,
 			);
 			name = View;
 			sourceTree = "<group>";
@@ -124,6 +138,8 @@
 		7F53665219807080000F77D1 /* MainControllers */ = {
 			isa = PBXGroup;
 			children = (
+				7F73533B19B2587A00A81612 /* ANVAskViewController.h */,
+				7F73533C19B2587A00A81612 /* ANVAskViewController.m */,
 				7F5366571989CCA4000F77D1 /* ANVFavoriteViewController.h */,
 				7F5366581989CCA4000F77D1 /* ANVFavoriteViewController.m */,
 				7F53665E198C5F30000F77D1 /* ANVMostViewedViewController.h */,
@@ -143,9 +159,6 @@
 				7F536654198070D4000F77D1 /* ANVCustomViewController.m */,
 				7F53664F19806DAF000F77D1 /* ANVCustomCell.h */,
 				7F53665019806DAF000F77D1 /* ANVCustomCell.m */,
-				7F536667198C6877000F77D1 /* ANVDetailViewController.h */,
-				7F536668198C6877000F77D1 /* ANVDetailViewController.m */,
-				7F536669198C6877000F77D1 /* ANVDetailViewController.xib */,
 			);
 			name = SuperClasses;
 			sourceTree = "<group>";
@@ -153,8 +166,8 @@
 		7F536672198EFB01000F77D1 /* SharedManagers */ = {
 			isa = PBXGroup;
 			children = (
-				7F53666F198EFAF9000F77D1 /* AnswerSharedManager.h */,
-				7F536670198EFAF9000F77D1 /* AnswerSharedManager.m */,
+				7F53666F198EFAF9000F77D1 /* QuestionSharedManager.h */,
+				7F536670198EFAF9000F77D1 /* QuestionSharedManager.m */,
 			);
 			name = SharedManagers;
 			sourceTree = "<group>";
@@ -162,6 +175,10 @@
 		7FA13605196B8B62003B071D = {
 			isa = PBXGroup;
 			children = (
+				7F5EEB9219E1FDB9007F514D /* ANVLoginToMain.h */,
+				7F5EEB9319E1FDB9007F514D /* ANVLoginToMain.m */,
+				7FFABC1A19D2479A00983E81 /* ANVDetailedController.h */,
+				7FFABC1B19D2479A00983E81 /* ANVDetailedController.m */,
 				7FA13617196B8B62003B071D /* ikwitMVC */,
 				7FA13630196B8B62003B071D /* ikwitMVCTests */,
 				7FA13610196B8B62003B071D /* Frameworks */,
@@ -192,11 +209,11 @@
 		7FA13617196B8B62003B071D /* ikwitMVC */ = {
 			isa = PBXGroup;
 			children = (
+				7F536672198EFB01000F77D1 /* SharedManagers */,
 				7F5366561989CC57000F77D1 /* SuperClasses */,
 				7F53664B19806D0A000F77D1 /* View */,
 				7FA13658196CB1CE003B071D /* Model */,
 				7FA13654196CB181003B071D /* Controller */,
-				7FA1364C196B8E37003B071D /* Storyboard.storyboard */,
 				7FA13623196B8B62003B071D /* Images.xcassets */,
 				7FA13618196B8B62003B071D /* Supporting Files */,
 			);
@@ -206,6 +223,12 @@
 		7FA13618196B8B62003B071D /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				7F5EEB9819E2619B007F514D /* DDIndicator.h */,
+				7F5EEB9919E2619B007F514D /* DDIndicator.m */,
+				7FE3B54819E118740078B65D /* GCDAsyncSocket.h */,
+				7FE3B54919E118740078B65D /* GCDAsyncSocket.m */,
+				7F0C063C19D75B5B00A308CC /* GHContextMenuView.h */,
+				7F0C063D19D75B5B00A308CC /* GHContextMenuView.m */,
 				7FA13620196B8B62003B071D /* ANVAppDelegate.h */,
 				7FA13621196B8B62003B071D /* ANVAppDelegate.m */,
 				7FA13619196B8B62003B071D /* ikwitMVC-Info.plist */,
@@ -237,7 +260,6 @@
 		7FA13654196CB181003B071D /* Controller */ = {
 			isa = PBXGroup;
 			children = (
-				7F536672198EFB01000F77D1 /* SharedManagers */,
 				7F53665219807080000F77D1 /* MainControllers */,
 				7FA13651196B96F9003B071D /* ANVSignUpViewController.h */,
 				7FA13652196B96F9003B071D /* ANVSignUpViewController.m */,
@@ -252,8 +274,8 @@
 			children = (
 				7FA13655196CB1C6003B071D /* User.h */,
 				7FA13656196CB1C6003B071D /* User.m */,
-				7F53666C198EF502000F77D1 /* Answer.h */,
-				7F53666D198EF502000F77D1 /* Answer.m */,
+				7F53666C198EF502000F77D1 /* Question.h */,
+				7F53666D198EF502000F77D1 /* Question.m */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -303,7 +325,7 @@
 			isa = PBXProject;
 			attributes = {
 				CLASSPREFIX = ANV;
-				LastUpgradeCheck = 0510;
+				LastUpgradeCheck = 0600;
 				ORGANIZATIONNAME = "Andrei Nechaev";
 				TargetAttributes = {
 					7FA1360D196B8B62003B071D = {
@@ -339,7 +361,6 @@
 			files = (
 				7FA1361C196B8B62003B071D /* InfoPlist.strings in Resources */,
 				7FA13624196B8B62003B071D /* Images.xcassets in Resources */,
-				7F53666B198C6877000F77D1 /* ANVDetailViewController.xib in Resources */,
 				7FA1364D196B8E37003B071D /* Storyboard.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -361,17 +382,22 @@
 			files = (
 				7F53665119806DAF000F77D1 /* ANVCustomCell.m in Sources */,
 				7FA13657196CB1C6003B071D /* User.m in Sources */,
+				7F0C063E19D75B5B00A308CC /* GHContextMenuView.m in Sources */,
 				7F536663198C62FD000F77D1 /* ANVFeedViewController.m in Sources */,
 				7F5366591989CCA4000F77D1 /* ANVFavoriteViewController.m in Sources */,
+				7FE3B54A19E118740078B65D /* GCDAsyncSocket.m in Sources */,
 				7F536660198C5F30000F77D1 /* ANVMostViewedViewController.m in Sources */,
-				7F53666E198EF502000F77D1 /* Answer.m in Sources */,
+				7F53666E198EF502000F77D1 /* Question.m in Sources */,
+				7F5EEB9A19E2619B007F514D /* DDIndicator.m in Sources */,
+				7FFABC1C19D2479A00983E81 /* ANVDetailedController.m in Sources */,
 				7FA13622196B8B62003B071D /* ANVAppDelegate.m in Sources */,
 				7FA1361E196B8B62003B071D /* main.m in Sources */,
+				7F73533D19B2587A00A81612 /* ANVAskViewController.m in Sources */,
 				7F536666198C6446000F77D1 /* ANVNotificationsViewController.m in Sources */,
 				7FA13653196B96F9003B071D /* ANVSignUpViewController.m in Sources */,
-				7F536671198EFAF9000F77D1 /* AnswerSharedManager.m in Sources */,
+				7F536671198EFAF9000F77D1 /* QuestionSharedManager.m in Sources */,
+				7F5EEB9419E1FDB9007F514D /* ANVLoginToMain.m in Sources */,
 				7F536655198070D4000F77D1 /* ANVCustomViewController.m in Sources */,
-				7F53666A198C6877000F77D1 /* ANVDetailViewController.m in Sources */,
 				7FA13650196B95FF003B071D /* ANVLoginViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -417,7 +443,7 @@
 		7FA13638196B8B62003B071D /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ALWAYS_SEARCH_USER_PATHS = NO;
+				ALWAYS_SEARCH_USER_PATHS = YES;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_MODULES = YES;
@@ -455,7 +481,7 @@
 		7FA13639196B8B62003B071D /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ALWAYS_SEARCH_USER_PATHS = NO;
+				ALWAYS_SEARCH_USER_PATHS = YES;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_MODULES = YES;
@@ -479,6 +505,7 @@
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
+				ONLY_ACTIVE_ARCH = NO;
 				SDKROOT = iphoneos;
 				VALIDATE_PRODUCT = YES;
 			};
@@ -489,13 +516,14 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
-				CODE_SIGN_IDENTITY = "iPhone Developer";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "iPhone Developer: Andrey Nechaev (VVC3FJJP5H)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Andrey Nechaev (VVC3FJJP5H)";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "ikwitMVC/ikwitMVC-Prefix.pch";
 				INFOPLIST_FILE = "ikwitMVC/ikwitMVC-Info.plist";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "";
+				PROVISIONING_PROFILE = "ce320489-2bab-4c87-8088-525cd51a81ac";
+				SDKROOT = iphoneos;
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -505,13 +533,14 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
-				CODE_SIGN_IDENTITY = "iPhone Developer";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "iPhone Developer: Andrey Nechaev (VVC3FJJP5H)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Andrey Nechaev (VVC3FJJP5H)";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "ikwitMVC/ikwitMVC-Prefix.pch";
 				INFOPLIST_FILE = "ikwitMVC/ikwitMVC-Info.plist";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "";
+				PROVISIONING_PROFILE = "ce320489-2bab-4c87-8088-525cd51a81ac";
+				SDKROOT = iphoneos;
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;
