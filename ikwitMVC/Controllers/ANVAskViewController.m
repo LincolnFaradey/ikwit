@@ -18,6 +18,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+
     // Do any additional setup after loading the view.
 }
 
@@ -28,8 +29,8 @@
 
 -(void) viewWillAppear:(BOOL)animated
 {
-    self.hidesBottomBarWhenPushed = YES;
-
+    [self.tabBarController.tabBar setHidden:YES];
+    [self.tabBarController setHidesBottomBarWhenPushed: YES];
 }
 
 /*
@@ -41,19 +42,23 @@
     // Pass the selected object to the new view controller.
 }
 */
+
 - (IBAction)addAsset:(id)sender {
     UIImagePickerController *imagePicker = [[UIImagePickerController alloc] init];
     imagePicker.delegate = self;
     
-    imagePicker.sourceType =
-    UIImagePickerControllerSourceTypeCamera;
-    
-    imagePicker.mediaTypes = @[(NSString*)kUTTypeImage, (NSString *)kUTTypeVideo];
-    
+    if ([UIImagePickerController isSourceTypeAvailable:UIImagePickerControllerSourceTypeCamera]){
+        imagePicker.mediaTypes = @[(NSString*)kUTTypeImage, (NSString *)kUTTypeVideo];
+        imagePicker.sourceType =
+        UIImagePickerControllerSourceTypeCamera;
+    }else{
+        imagePicker.sourceType = UIImagePickerControllerSourceTypePhotoLibrary;
+    }
     
     imagePicker.allowsEditing = YES;
-    [self presentViewController:imagePicker
-                       animated:YES completion:nil];
+//    [self presentViewController:imagePicker
+//                       animated:YES completion:nil];
+    [self.navigationController presentViewController:imagePicker animated:YES completion:nil];
 }
 
 - (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary *)info
@@ -61,7 +66,12 @@
     _image.image = info[UIImagePickerControllerOriginalImage];
     
     [self dismissViewControllerAnimated:YES completion:nil];
-    self.hidesBottomBarWhenPushed = YES;
+    
+}
+
+-(void)imagePickerControllerDidCancel:(UIImagePickerController *)picker
+{
+    [self dismissViewControllerAnimated:YES completion:nil];
 }
 
 @end
