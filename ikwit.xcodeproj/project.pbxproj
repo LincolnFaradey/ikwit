@@ -74,7 +74,7 @@
 		7F5EEB9919E2619B007F514D /* DDIndicator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DDIndicator.m; sourceTree = "<group>"; };
 		7F73533B19B2587A00A81612 /* ANVAskViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ANVAskViewController.h; path = Controllers/ANVAskViewController.h; sourceTree = "<group>"; };
 		7F73533C19B2587A00A81612 /* ANVAskViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ANVAskViewController.m; path = Controllers/ANVAskViewController.m; sourceTree = "<group>"; };
-		7FA1360E196B8B62003B071D /* ikwitMVC.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ikwitMVC.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		7FA1360E196B8B62003B071D /* ikwit.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ikwit.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7FA13611196B8B62003B071D /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		7FA13613196B8B62003B071D /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
 		7FA13615196B8B62003B071D /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
@@ -189,7 +189,7 @@
 		7FA1360F196B8B62003B071D /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				7FA1360E196B8B62003B071D /* ikwitMVC.app */,
+				7FA1360E196B8B62003B071D /* ikwit.app */,
 				7FA13629196B8B62003B071D /* ikwitTests.xctest */,
 			);
 			name = Products;
@@ -297,7 +297,7 @@
 			);
 			name = ikwit;
 			productName = ikwitMVC;
-			productReference = 7FA1360E196B8B62003B071D /* ikwitMVC.app */;
+			productReference = 7FA1360E196B8B62003B071D /* ikwit.app */;
 			productType = "com.apple.product-type.application";
 		};
 		7FA13628196B8B62003B071D /* ikwitTests */ = {

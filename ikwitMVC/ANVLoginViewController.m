@@ -60,7 +60,7 @@ static NSString *TCP_NOTIFICATION_SUCCESS = @"Success";
     
     self.view.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"bg"]];
     
-    [self initTCPConnection];
+    
     // Do any additional setup after loading the view.
 }
 
@@ -93,6 +93,8 @@ static NSString *TCP_NOTIFICATION_SUCCESS = @"Success";
 
 - (void)viewWillAppear:(BOOL)animated
 {
+    [self initTCPConnection];
+    
     [[NSNotificationCenter defaultCenter] addObserver:self
                                              selector:@selector(keyboardWillShow:)
                                                  name:UIKeyboardWillShowNotification
@@ -123,6 +125,7 @@ static NSString *TCP_NOTIFICATION_SUCCESS = @"Success";
     [[NSNotificationCenter defaultCenter] removeObserver:self
                                                     name:TCP_NOTIFICATION_SUCCESS
                                                   object:nil];
+    [socket disconnect];
 }
 
 - (void) keyboardWillShow:(NSNotification *)notification

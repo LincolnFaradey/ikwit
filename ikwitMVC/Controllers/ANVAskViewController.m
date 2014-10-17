@@ -9,8 +9,17 @@
 #import "ANVAskViewController.h"
 #import <MobileCoreServices/MobileCoreServices.h>
 
+enum ActionListButtons {
+    PHOTO_CAMERA_BUTTON = 0,
+    PHOTO_LIBRARY_BUTTON,
+    VIDEO_CAMERA_BUTTON
+};
+
 @interface ANVAskViewController ()
 @property (weak, nonatomic) IBOutlet UIImageView *image;
+
+- (void)takePhoto;
+- (void)openPhotoLibrary;
 
 @end
 
@@ -44,21 +53,16 @@
 */
 
 - (IBAction)addAsset:(id)sender {
-    UIImagePickerController *imagePicker = [[UIImagePickerController alloc] init];
-    imagePicker.delegate = self;
     
-    if ([UIImagePickerController isSourceTypeAvailable:UIImagePickerControllerSourceTypeCamera]){
-        imagePicker.mediaTypes = @[(NSString*)kUTTypeImage, (NSString *)kUTTypeVideo];
-        imagePicker.sourceType =
-        UIImagePickerControllerSourceTypeCamera;
-    }else{
-        imagePicker.sourceType = UIImagePickerControllerSourceTypePhotoLibrary;
-    }
     
-    imagePicker.allowsEditing = YES;
-//    [self presentViewController:imagePicker
-//                       animated:YES completion:nil];
-    [self.navigationController presentViewController:imagePicker animated:YES completion:nil];
+    UIActionSheet *actionSheet = [[UIActionSheet alloc] initWithTitle:@"Choose the type of media"
+                                                             delegate:self
+                                                    cancelButtonTitle:@"Cancel"
+                                               destructiveButtonTitle:nil
+                                                    otherButtonTitles:@"Camera", @"Photo Library", @"Video", nil];
+    actionSheet.tag = 101;
+    [actionSheet showFromTabBar:self.tabBarController.tabBar];
+    
 }
 
 - (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary *)info
@@ -72,6 +76,69 @@
 -(void)imagePickerControllerDidCancel:(UIImagePickerController *)picker
 {
     [self dismissViewControllerAnimated:YES completion:nil];
+}
+
+#pragma mark - ActionSheet metods
+
+- (void) actionSheet:(UIActionSheet *)actionSheet clickedButtonAtIndex:(NSInteger)buttonIndex
+{
+    if (actionSheet.tag == 101) {
+        switch (buttonIndex) {
+            case PHOTO_CAMERA_BUTTON:
+                [self takePhoto];
+                break;
+            case PHOTO_LIBRARY_BUTTON:
+                [self openPhotoLibrary];
+                break;
+            case VIDEO_CAMERA_BUTTON:
+                [self makeVideo];
+                break;
+            default:
+                break;
+        }
+    }
+}
+
+- (void)takePhoto
+{
+    UIImagePickerController *imagePicker = [[UIImagePickerController alloc] init];
+    imagePicker.delegate = self;
+    
+    if ([UIImagePickerController isSourceTypeAvailable:UIImagePickerControllerSourceTypeCamera]){
+        //        imagePicker.mediaTypes = @[(NSString*)kUTTypeImage, (NSString *)kUTTypeVideo];
+        imagePicker.sourceType = UIImagePickerControllerSourceTypeCamera;
+    }else{
+        imagePicker.sourceType = UIImagePickerControllerSourceTypePhotoLibrary;
+    }
+    
+    imagePicker.allowsEditing = YES;
+    //    [self presentViewController:imagePicker
+    //                       animated:YES completion:nil];
+    [self.navigationController presentViewController:imagePicker animated:YES completion:nil];
+}
+
+- (void)openPhotoLibrary
+{
+    UIImagePickerController *imagePicker = [[UIImagePickerController alloc] init];
+    imagePicker.delegate = self;
+    imagePicker.sourceType = UIImagePickerControllerSourceTypePhotoLibrary;
+    
+    imagePicker.allowsEditing = YES;
+    
+    [self.navigationController presentViewController:imagePicker animated:YES completion:nil];
+}
+
+- (void)makeVideo
+{
+    UIVideoEditorController* videoEditor = [[UIVideoEditorController alloc] init];
+    videoEditor.delegate = self;
+    NSString* videoPath = [[NSBundle mainBundle] pathForResource:@"test" ofType:@"MOV"];
+    if ( [UIVideoEditorController canEditVideoAtPath:videoPath] ) {
+        videoEditor.videoPath = videoPath;
+        [self presentViewController:videoEditor animated:YES completion:nil];
+    } else {
+        NSLog( @"can't edit video at %@", videoPath );
+    }
 }
 
 @end

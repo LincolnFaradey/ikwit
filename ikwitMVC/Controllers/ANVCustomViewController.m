@@ -96,7 +96,8 @@ static NSString *customCellID = @"ANVCustomCell";
             msg = @"Accaunt Selected";
             break;
         case 2:
-            msg = @"Sign Out Selected";
+//            msg = @"Sign Out Selected";
+            [self performSegueWithIdentifier:@"Exit" sender:self];
             break;
             
         default:
