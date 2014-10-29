@@ -36,11 +36,11 @@
                  withPassword:(NSString *)password
            andConfirmPassword:(NSString *)c_password
 {
-    
+    self = [super init];
     
     if ([password isEqualToString:c_password]){
         
-        self = [super init];
+        
         if (self) {
             self.login = login;
             self.email = email;

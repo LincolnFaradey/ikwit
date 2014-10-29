@@ -15,7 +15,8 @@
 + (id)sharedManager;
 
 - (NSUInteger)length;
-- (void)fillStore;
 - (NSArray *)returnAnswers;
+
+- (void)fillStore;
 
 @end

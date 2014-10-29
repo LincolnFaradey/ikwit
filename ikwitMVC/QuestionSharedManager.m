@@ -35,17 +35,17 @@
     return sharedStore.count;
 }
 
+- (NSArray *)returnAnswers
+{
+    return sharedStore;
+}
+
+#pragma mark - Remove before prodaction
+
 - (void)fillStore
 {
     Question *answ = [[Question alloc] initWithUser:@"Andrei Nechaev" withAnswer:@"My First Answer" withLikes:arc4random() % 44 withComments:arc4random() % 100];
     [sharedStore addObject:answ];
-}
-
-- (NSArray *)returnAnswers
-{
-    NSArray *arr = [NSArray arrayWithArray:sharedStore];
-    
-    return arr;
 }
 
 @end

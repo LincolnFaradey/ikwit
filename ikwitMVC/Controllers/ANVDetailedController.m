@@ -34,6 +34,7 @@
 
 -(void) viewWillAppear:(BOOL)animated
 {
+    [super viewWillAppear:animated];
     self.navigationController.hidesBarsOnSwipe = YES;
 }
 
@@ -83,7 +84,7 @@
     if (indexPath.section == 0) {
         mainCell.userName.text = self.question.authorName;
         mainCell.likeCounter.text = [NSString stringWithFormat:@"%lu", (unsigned long)self.question.likeCounter];
-        mainCell.commentsCounter.text = [NSString stringWithFormat:@"%lu", (unsigned long)self.question.likeCounter];
+        mainCell.commentsCounter.text = [NSString stringWithFormat:@"%lu", (unsigned long)self.question.commentsCounter];
         return mainCell;
     }else{
         Question *answer = [[questionSM returnAnswers] objectAtIndex:indexPath.row];

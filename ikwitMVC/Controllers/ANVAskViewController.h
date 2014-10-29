@@ -8,6 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface ANVAskViewController : UIViewController <UIImagePickerControllerDelegate, UINavigationControllerDelegate, UIActionSheetDelegate, UIVideoEditorControllerDelegate>
+@interface ANVAskViewController : UIViewController <UIImagePickerControllerDelegate, UINavigationControllerDelegate, UIActionSheetDelegate, UIVideoEditorControllerDelegate, UIToolbarDelegate>
 
 @end

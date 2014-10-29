@@ -18,6 +18,7 @@
 		7F536671198EFAF9000F77D1 /* QuestionSharedManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 7F536670198EFAF9000F77D1 /* QuestionSharedManager.m */; };
 		7F5EEB9419E1FDB9007F514D /* ANVLoginToMain.m in Sources */ = {isa = PBXBuildFile; fileRef = 7F5EEB9319E1FDB9007F514D /* ANVLoginToMain.m */; };
 		7F5EEB9A19E2619B007F514D /* DDIndicator.m in Sources */ = {isa = PBXBuildFile; fileRef = 7F5EEB9919E2619B007F514D /* DDIndicator.m */; };
+		7F71BE041A00FC5C00AADD1B /* ANVKeyboardToolBar.m in Sources */ = {isa = PBXBuildFile; fileRef = 7F71BE031A00FC5C00AADD1B /* ANVKeyboardToolBar.m */; };
 		7F73533D19B2587A00A81612 /* ANVAskViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7F73533C19B2587A00A81612 /* ANVAskViewController.m */; };
 		7FA13612196B8B62003B071D /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7FA13611196B8B62003B071D /* Foundation.framework */; };
 		7FA13614196B8B62003B071D /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7FA13613196B8B62003B071D /* CoreGraphics.framework */; };
@@ -72,6 +73,8 @@
 		7F5EEB9319E1FDB9007F514D /* ANVLoginToMain.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ANVLoginToMain.m; path = ikwitMVC/CustomSegue/ANVLoginToMain.m; sourceTree = "<group>"; };
 		7F5EEB9819E2619B007F514D /* DDIndicator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DDIndicator.h; sourceTree = "<group>"; };
 		7F5EEB9919E2619B007F514D /* DDIndicator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DDIndicator.m; sourceTree = "<group>"; };
+		7F71BE021A00FC5C00AADD1B /* ANVKeyboardToolBar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ANVKeyboardToolBar.h; path = View/ANVKeyboardToolBar.h; sourceTree = "<group>"; };
+		7F71BE031A00FC5C00AADD1B /* ANVKeyboardToolBar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ANVKeyboardToolBar.m; path = View/ANVKeyboardToolBar.m; sourceTree = "<group>"; };
 		7F73533B19B2587A00A81612 /* ANVAskViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ANVAskViewController.h; path = Controllers/ANVAskViewController.h; sourceTree = "<group>"; };
 		7F73533C19B2587A00A81612 /* ANVAskViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ANVAskViewController.m; path = Controllers/ANVAskViewController.m; sourceTree = "<group>"; };
 		7FA1360E196B8B62003B071D /* ikwit.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ikwit.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -131,6 +134,8 @@
 			isa = PBXGroup;
 			children = (
 				7FA1364C196B8E37003B071D /* Storyboard.storyboard */,
+				7F71BE021A00FC5C00AADD1B /* ANVKeyboardToolBar.h */,
+				7F71BE031A00FC5C00AADD1B /* ANVKeyboardToolBar.m */,
 			);
 			name = View;
 			sourceTree = "<group>";
@@ -388,6 +393,7 @@
 				7FE3B54A19E118740078B65D /* GCDAsyncSocket.m in Sources */,
 				7F536660198C5F30000F77D1 /* ANVMostViewedViewController.m in Sources */,
 				7F53666E198EF502000F77D1 /* Question.m in Sources */,
+				7F71BE041A00FC5C00AADD1B /* ANVKeyboardToolBar.m in Sources */,
 				7F5EEB9A19E2619B007F514D /* DDIndicator.m in Sources */,
 				7FFABC1C19D2479A00983E81 /* ANVDetailedController.m in Sources */,
 				7FA13622196B8B62003B071D /* ANVAppDelegate.m in Sources */,

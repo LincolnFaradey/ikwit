@@ -19,7 +19,7 @@
 @property (weak, nonatomic) IBOutlet UIButton *signInButton;
 @property (strong, nonatomic)GCDAsyncSocket *socket;
 @property (nonatomic)BOOL didGetResponse;
-//@property (nonatomic)CDActivityIndicatorView *aiv;
+
 @property (nonatomic)DDIndicator *indicator;
 @property (nonatomic, weak)NSTimer *timer;
 
@@ -32,7 +32,6 @@
 @implementation ANVLoginViewController
 
 @synthesize socket;
-//@synthesize aiv;
 
 static NSString *TCP_NOTIFICATION_SUCCESS = @"Success";
 
@@ -59,8 +58,6 @@ static NSString *TCP_NOTIFICATION_SUCCESS = @"Success";
     _passwordTextField.delegate = self;
     
     self.view.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"bg"]];
-    
-    
     // Do any additional setup after loading the view.
 }
 
@@ -93,6 +90,7 @@ static NSString *TCP_NOTIFICATION_SUCCESS = @"Success";
 
 - (void)viewWillAppear:(BOOL)animated
 {
+    [super viewWillAppear:animated];
     [self initTCPConnection];
     
     [[NSNotificationCenter defaultCenter] addObserver:self
@@ -114,6 +112,7 @@ static NSString *TCP_NOTIFICATION_SUCCESS = @"Success";
 
 - (void)viewWillDisappear:(BOOL)animated
 {
+    [super viewWillDisappear:animated];
     [[NSNotificationCenter defaultCenter] removeObserver:self
                                                     name:UIKeyboardWillShowNotification
                                                   object:nil];
