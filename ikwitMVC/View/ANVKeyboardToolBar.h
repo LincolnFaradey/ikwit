@@ -10,7 +10,7 @@
 
 @interface ANVKeyboardToolBar : UIView
 
-@property (retain, nonatomic)UITextField *textField;
-@property (retain, nonatomic)UIButton *button;
+@property (strong, nonatomic)UITextField *textField;
+@property (strong, nonatomic)UIButton *button;
 
 @end

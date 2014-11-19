@@ -61,11 +61,6 @@
 
 - (NSDictionary *)dictionary
 {
-//    NSDictionary *userD = [NSDictionary dictionaryWithObjectsAndKeys:
-//                           self.login, @"login",
-//                           self.email, @"email",
-//                           self.password, @"password",
-//                           nil];
     
     NSDictionary *userD = @{@"login": self.login,
                             @"email": self.email,

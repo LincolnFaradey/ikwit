@@ -23,6 +23,7 @@ enum ActionListButtons {
 @property (strong, nonatomic) NSURL *videoURL;
 @property (strong, nonatomic) MPMoviePlayerController *videoController;
 @property (strong, nonatomic) ANVKeyboardToolBar *toolBar;
+@property (weak, nonatomic) IBOutlet UILabel *textLabel;
 
 - (void)takePhoto;
 - (void)openPhotoLibrary;
@@ -37,6 +38,7 @@ enum ActionListButtons {
     [_image setAutoresizingMask:(UIViewAutoresizingFlexibleHeight | UIViewAutoresizingFlexibleWidth)];
     _toolBar = [[ANVKeyboardToolBar alloc] init];
     [self.view addSubview:_toolBar];
+    [_toolBar.button addTarget:self action:@selector(sendButtonPushed:) forControlEvents:UIControlEventTouchUpInside];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -203,5 +205,14 @@ enum ActionListButtons {
 - (void) touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event
 {
     [self.view endEditing:YES];
+}
+
+- (void)sendButtonPushed:(id)sender
+{
+    NSLog(@"send pressed");
+    if (_image.image == nil){
+        NSLog(@"hi");
+    }
+    _textLabel.text = _toolBar.textField.text;
 }
 @end

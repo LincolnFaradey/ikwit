@@ -17,6 +17,11 @@
 @property (weak, nonatomic)ANVCustomCell *cell;
 @property (weak, nonatomic)QuestionSharedManager *sharedStore;
 
+- (void)moreButtonBeenPressed:(id)sender;
+- (void)likeButtonBeenPressed:(id)sender;
+- (void)favoriteButtonBeenPressed:(id)sender;
+- (void)commentsButtonBeenPressed:(id)sender;
+- (void)userIconBeenPressed:(id)sender;
 
 @end
 
@@ -44,6 +49,7 @@ static NSString *customCellID = @"ANVCustomCell";
     
     UILongPressGestureRecognizer* _longPressRecognizer = [[UILongPressGestureRecognizer alloc] initWithTarget:overlay action:@selector(longPressDetected:)];
     [self.view addGestureRecognizer:_longPressRecognizer];
+    
     _sharedStore = [QuestionSharedManager sharedManager];
     self.tableView.delegate = self;
     self.tableView.dataSource = self;
@@ -57,6 +63,10 @@ static NSString *customCellID = @"ANVCustomCell";
     
     [_sharedStore fillStore];
     [_sharedStore fillStore];
+    
+    //TEST
+    NSUserDefaults *userD = [NSUserDefaults standardUserDefaults];
+    NSLog(@"Token - %@", [userD objectForKey:@"Token"]);
 }
 
 // Implementing data source methods
@@ -136,12 +146,27 @@ static NSString *customCellID = @"ANVCustomCell";
     ANVCustomCell *loadedCell = (ANVCustomCell *)[tableView dequeueReusableCellWithIdentifier:customCellID];
     if (loadedCell == nil) {
         loadedCell = [[ANVCustomCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:customCellID];
-        [loadedCell.likeButton addTarget:self action:@selector(wow:) forControlEvents:UIControlEventTouchUpInside];
     }
     Question *answer = [[_sharedStore returnAnswers] objectAtIndex:indexPath.row];
     loadedCell.userName.text = answer.authorName;
     loadedCell.likeCounter.text = [NSString stringWithFormat:@"%lu", (unsigned long)answer.likeCounter ];
     loadedCell.commentsCounter.text = [NSString stringWithFormat:@"%lu", (unsigned long)answer.commentsCounter];
+    
+    [loadedCell.likeButton addTarget:self action:@selector(likeButtonBeenPressed:) forControlEvents:UIControlEventTouchDown];
+    loadedCell.likeButton.tag = indexPath.row;
+    
+    [loadedCell.commentsButton addTarget:self action:@selector(commentsButtonBeenPressed:) forControlEvents:UIControlEventTouchUpInside];
+    loadedCell.commentsButton.tag = indexPath.row;
+    
+    [loadedCell.userIcon addTarget:self action:@selector(userIconBeenPressed:) forControlEvents:UIControlEventTouchUpInside];
+    loadedCell.userIcon.tag = indexPath.row;
+    
+    [loadedCell.moreButton addTarget:self action:@selector(moreButtonBeenPressed:) forControlEvents:UIControlEventTouchUpInside];
+    loadedCell.moreButton.tag = indexPath.row;
+    
+    [loadedCell.favoriteButton addTarget:self action:@selector(favoriteButtonBeenPressed:) forControlEvents:UIControlEventTouchUpInside];
+    loadedCell.favoriteButton.tag = indexPath.row;
+    
     return loadedCell;
 }
 
@@ -241,11 +266,6 @@ static NSString *customCellID = @"ANVCustomCell";
 - (void)commentsButtonBeenPressed:(id)sender
 {
     NSLog(@"Comments pressed");
-}
-
-- (void)wow:(id)sender
-{
-    NSLog(@"1111111111");
 }
 
 

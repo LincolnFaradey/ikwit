@@ -34,13 +34,13 @@
 @synthesize socket;
 
 static NSString *TCP_NOTIFICATION_SUCCESS = @"Success";
+static NSString *HOST = @"localhost";  //192.168.1.7 for homesharing
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
-        self.loginTextField.tag = 1;
-        self.passwordTextField.tag = 2;
+        
     }
     return self;
 }
@@ -58,7 +58,6 @@ static NSString *TCP_NOTIFICATION_SUCCESS = @"Success";
     _passwordTextField.delegate = self;
     
     self.view.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"bg"]];
-    // Do any additional setup after loading the view.
 }
 
 - (void)didReceiveMemoryWarning
@@ -67,26 +66,11 @@ static NSString *TCP_NOTIFICATION_SUCCESS = @"Success";
     // Dispose of any resources that can be recreated.
 }
 
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
-{
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
 - (IBAction)unwindToLogin:(UIStoryboardSegue *)segue
 {
 }
 
-- (void) touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event
-{
-    [self.view endEditing:YES];
-}
-
-#pragma mark - keyboard moving, tcp connection - notifications
+#pragma mark - tcp connection - notifications
 
 - (void)viewWillAppear:(BOOL)animated
 {
@@ -126,6 +110,111 @@ static NSString *TCP_NOTIFICATION_SUCCESS = @"Success";
                                                   object:nil];
     [socket disconnect];
 }
+
+
+
+#pragma mark - Login button
+- (IBAction)signInPressed:(id)sender {
+    NSData *data = [self prepareForServer];
+    
+    [socket readDataWithTimeout:-1 tag:0]; //if you need to get more than one response
+    [socket writeData:data withTimeout:-1 tag:1];
+    
+    self.timer = [NSTimer scheduledTimerWithTimeInterval:6.0 target:self selector:@selector(interruptAttempt:) userInfo:nil repeats:NO];
+
+    [self showIndicator];
+}
+
+- (NSData*)prepareForServer
+{
+    NSString *login = [_loginTextField.text stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet]];
+    NSString *password = [_passwordTextField.text stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet]];
+    
+    NSDictionary *loginInformation = @{@"login" : login, @"password" : password};
+    
+    NSData *data = [NSJSONSerialization dataWithJSONObject:loginInformation
+                                                   options:NSJSONWritingPrettyPrinted
+                                                     error:nil];
+    
+    return data;
+}
+
+- (void)showIndicator
+{
+    _indicator = [[DDIndicator alloc] initWithFrame:CGRectMake(self.view.center.x - 15,
+                                                               self.view.center.y - 80,
+                                                               30, 30)];
+    [self.view addSubview:_indicator];
+    [self enableAllFields:NO];
+    [_indicator startAnimating];
+}
+
+- (void)interruptAttempt:(NSNotification *)notification
+{
+    [socket disconnect];
+    [self enableAllFields:YES];
+    [_indicator stopAnimating];
+    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Too Long"
+                                                    message:@"That takes too long time"
+                                                   delegate:self cancelButtonTitle:@"OK"
+                                          otherButtonTitles:nil, nil];
+    [socket disconnect];
+    [socket connectToHost:HOST onPort:1477 error:nil];
+    [alert show];
+    
+}
+
+#pragma mark - managing TCP connection
+
+- (void)initTCPConnection
+{
+    NSError *err;
+    
+    if (![socket connectToHost:HOST onPort:1477 error:&err]) {
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"No Connection"
+                                                        message:@"You don't have a connection"
+                                                       delegate:self cancelButtonTitle:@"OK"
+                                              otherButtonTitles:nil, nil];
+        
+        [alert show];
+    }
+}
+
+- (void)socket:(GCDAsyncSocket *)sender didConnectToHost:(NSString *)host port:(UInt16)port
+{
+    NSLog(@"connected!");
+}
+
+-(void)socket:(GCDAsyncSocket *)sock didReadData:(NSData *)data withTag:(long)tag {
+    
+    NSString *msg = [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding];
+    NSLog(@"%@", msg);
+    self.didGetResponse = ([msg length] >= 40) ? YES : NO;
+    
+    if (self.didGetResponse)
+    {
+        NSUserDefaults *userDefault = [NSUserDefaults standardUserDefaults];
+        
+        [userDefault setObject:msg forKey:@"Token"];
+        if ([userDefault synchronize]){
+            [[NSNotificationCenter defaultCenter] postNotificationName:TCP_NOTIFICATION_SUCCESS object:nil];
+        }
+    }
+}
+
+- (void)loginSuccess:(NSNotification *)note
+{
+    [self.timer invalidate];
+    NSLog(@"NSN here");
+    [_indicator stopAnimating];
+    if (self.didGetResponse) {
+        [self performSegueWithIdentifier:@"MainVC" sender:self];
+    }
+    [socket disconnect];
+}
+
+
+#pragma mark - Keyboard Control
 
 - (void) keyboardWillShow:(NSNotification *)notification
 {
@@ -179,87 +268,20 @@ static NSString *TCP_NOTIFICATION_SUCCESS = @"Success";
     return NO;
 }
 
-#pragma mark - Login button
-- (IBAction)signInPressed:(id)sender {
-    NSString *login = [_loginTextField.text stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet]];
-    NSString *password = [_passwordTextField.text stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet]];
-    
-    NSDictionary *loginInformation = @{@"login" : login, @"password" : password};
+#pragma mark - View Control
 
-    NSData *data = [NSJSONSerialization dataWithJSONObject:loginInformation
-                                                   options:NSJSONWritingPrettyPrinted
-                                                     error:nil];
-    [socket readDataWithTimeout:-1 tag:0]; //if you need to get more than one response
-    [socket writeData:data withTimeout:-1 tag:1];
-    
-    self.timer = [NSTimer scheduledTimerWithTimeInterval:10.0 target:self selector:@selector(interruptAttempt:) userInfo:nil repeats:NO];
-
-    _indicator = [[DDIndicator alloc] initWithFrame:CGRectMake(self.view.center.x - 15,
-                                                               self.view.center.y - 80,
-                                                               30, 30)];
-    [self.view addSubview:_indicator];
-    
-    [self enableAllFields:NO];
-    [_indicator startAnimating];
+- (void)enableAllFields:(BOOL)response{
+    _signUpButton.enabled = response;
+    _signInButton.enabled = response;
+    _loginTextField.enabled = response;
+    _passwordTextField.enabled = response;
 }
 
-- (void)interruptAttempt:(NSNotification *)notification
+- (void) touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event
 {
-    [socket disconnect];
-    [self enableAllFields:YES];
-    [_indicator stopAnimating];
-    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Too Long" message:@"That takes too long time" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
-    [alert show];
+    [self.view endEditing:YES];
 }
 
-#pragma mark - help methods creaing underlayer
-
-- (void)enableAllFields:(BOOL)resp{
-    _signUpButton.enabled = resp;
-    _signInButton.enabled = resp;
-    _loginTextField.enabled = resp;
-    _passwordTextField.enabled = resp;
-}
-
-#pragma mark - managing TCP connection
-
-- (void)initTCPConnection
-{
-    NSError *err;
-    
-    if (![socket connectToHost:@"192.168.1.7" onPort:1477 error:&err]) { //192.168.1.7 for homesharing
-        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"No Connection" message:@"You don't connect to Web" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
-        
-        [alert show];
-    }
-}
-
-- (void)socket:(GCDAsyncSocket *)sender didConnectToHost:(NSString *)host port:(UInt16)port
-{
-    NSLog(@"connected!");
-    //[socket readDataWithTimeout:-1 tag:0]; //read just once
-}
-
--(void)socket:(GCDAsyncSocket *)sock didReadData:(NSData *)data withTag:(long)tag {
-    
-    NSString *msg = [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding];
-    self.didGetResponse = [msg isEqualToString:@"ok"] ? YES : NO;
-    
-    if (self.didGetResponse) [[NSNotificationCenter defaultCenter] postNotificationName:TCP_NOTIFICATION_SUCCESS object:nil];
-}
-
-- (void)loginSuccess:(NSNotification *)note
-{
-    [self.timer invalidate];
-    NSLog(@"NSN here");
-    [_indicator stopAnimating];
-    if (self.didGetResponse) {
-        [self performSegueWithIdentifier:@"MainVC" sender:self];
-    }
-    [socket disconnect];
-}
-
-#pragma mark - orintation
 -(BOOL)shouldAutorotate
 {
     

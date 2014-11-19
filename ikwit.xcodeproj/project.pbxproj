@@ -20,6 +20,7 @@
 		7F5EEB9A19E2619B007F514D /* DDIndicator.m in Sources */ = {isa = PBXBuildFile; fileRef = 7F5EEB9919E2619B007F514D /* DDIndicator.m */; };
 		7F71BE041A00FC5C00AADD1B /* ANVKeyboardToolBar.m in Sources */ = {isa = PBXBuildFile; fileRef = 7F71BE031A00FC5C00AADD1B /* ANVKeyboardToolBar.m */; };
 		7F73533D19B2587A00A81612 /* ANVAskViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7F73533C19B2587A00A81612 /* ANVAskViewController.m */; };
+		7F7F58581A1AD64800A7F641 /* ANVLoginViewController+TCPConnection.m in Sources */ = {isa = PBXBuildFile; fileRef = 7F7F58571A1AD64800A7F641 /* ANVLoginViewController+TCPConnection.m */; };
 		7FA13612196B8B62003B071D /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7FA13611196B8B62003B071D /* Foundation.framework */; };
 		7FA13614196B8B62003B071D /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7FA13613196B8B62003B071D /* CoreGraphics.framework */; };
 		7FA13616196B8B62003B071D /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7FA13615196B8B62003B071D /* UIKit.framework */; };
@@ -77,6 +78,8 @@
 		7F71BE031A00FC5C00AADD1B /* ANVKeyboardToolBar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ANVKeyboardToolBar.m; path = View/ANVKeyboardToolBar.m; sourceTree = "<group>"; };
 		7F73533B19B2587A00A81612 /* ANVAskViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ANVAskViewController.h; path = Controllers/ANVAskViewController.h; sourceTree = "<group>"; };
 		7F73533C19B2587A00A81612 /* ANVAskViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ANVAskViewController.m; path = Controllers/ANVAskViewController.m; sourceTree = "<group>"; };
+		7F7F58561A1AD64800A7F641 /* ANVLoginViewController+TCPConnection.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "ANVLoginViewController+TCPConnection.h"; path = "ikwitMVC/Categories/ANVLoginViewController+TCPConnection.h"; sourceTree = "<group>"; };
+		7F7F58571A1AD64800A7F641 /* ANVLoginViewController+TCPConnection.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "ANVLoginViewController+TCPConnection.m"; path = "ikwitMVC/Categories/ANVLoginViewController+TCPConnection.m"; sourceTree = "<group>"; };
 		7FA1360E196B8B62003B071D /* ikwit.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ikwit.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7FA13611196B8B62003B071D /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		7FA13613196B8B62003B071D /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -184,6 +187,8 @@
 				7F5EEB9319E1FDB9007F514D /* ANVLoginToMain.m */,
 				7FFABC1A19D2479A00983E81 /* ANVDetailedController.h */,
 				7FFABC1B19D2479A00983E81 /* ANVDetailedController.m */,
+				7F7F58561A1AD64800A7F641 /* ANVLoginViewController+TCPConnection.h */,
+				7F7F58571A1AD64800A7F641 /* ANVLoginViewController+TCPConnection.m */,
 				7FA13617196B8B62003B071D /* ikwitMVC */,
 				7FA13630196B8B62003B071D /* ikwitMVCTests */,
 				7FA13610196B8B62003B071D /* Frameworks */,
@@ -390,6 +395,7 @@
 				7F0C063E19D75B5B00A308CC /* GHContextMenuView.m in Sources */,
 				7F536663198C62FD000F77D1 /* ANVFeedViewController.m in Sources */,
 				7F5366591989CCA4000F77D1 /* ANVFavoriteViewController.m in Sources */,
+				7F7F58581A1AD64800A7F641 /* ANVLoginViewController+TCPConnection.m in Sources */,
 				7FE3B54A19E118740078B65D /* GCDAsyncSocket.m in Sources */,
 				7F536660198C5F30000F77D1 /* ANVMostViewedViewController.m in Sources */,
 				7F53666E198EF502000F77D1 /* Question.m in Sources */,

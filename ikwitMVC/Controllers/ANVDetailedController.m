@@ -88,6 +88,7 @@
         return mainCell;
     }else{
         Question *answer = [[questionSM returnAnswers] objectAtIndex:indexPath.row];
+        cell.textLabel.numberOfLines = 0;
         cell.textLabel.text = answer.authorName;
         cell.detailTextLabel.text = answer.answerText;
         return cell;
