@@ -7,18 +7,21 @@
 //
 
 #import <Foundation/Foundation.h>
+@class Comment;
 
-@interface Question : NSObject
+@interface Post : NSObject
 
 @property (strong, nonatomic)NSString *authorName;
 @property (strong, nonatomic)NSString *answerText;
 @property (assign, nonatomic)NSUInteger likeCounter;
 @property (assign, nonatomic)NSUInteger commentsCounter;
 
+@property (strong, nonatomic)NSMutableArray *commentStorage;
+
 - (id)initWithUser:(NSString *)userName
-        withAnswer:(NSString *)answer
-         withLikes:(NSInteger)likeCounter
-      withComments:(NSUInteger)commentsCounter;;
-- (void)downloadAnswersFromServer;
+        withAnswer:(NSString *)answer;
+
+- (void)addCommentToStorage:(Comment *)comment;
+- (NSArray *)returnComments;
 
 @end

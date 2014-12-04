@@ -6,15 +6,15 @@
 //  Copyright (c) 2014 Andrei Nechaev. All rights reserved.
 //
 
-#import "QuestionSharedManager.h"
-#import "Question.h"
+#import "PostSharedManager.h"
+#import "Post.h"
 
-@implementation QuestionSharedManager
+@implementation PostSharedManager
 
 #pragma mark - singleton method
 + (id)sharedManager
 {
-    static QuestionSharedManager *sharedManager = nil;
+    static PostSharedManager *sharedManager = nil;
     static dispatch_once_t onceToken;
     dispatch_once(&onceToken, ^{
         sharedManager = [[self alloc] init];
@@ -30,6 +30,11 @@
     return self;
 }
 
+- (void)addPost:(Post *)post
+{
+    [sharedStore addObject:post];
+}
+
 - (NSUInteger)length
 {
     return sharedStore.count;
@@ -40,12 +45,7 @@
     return sharedStore;
 }
 
-#pragma mark - Remove before prodaction
 
-- (void)fillStore
-{
-    Question *answ = [[Question alloc] initWithUser:@"Andrei Nechaev" withAnswer:@"My First Answer" withLikes:arc4random() % 44 withComments:arc4random() % 100];
-    [sharedStore addObject:answ];
-}
+
 
 @end

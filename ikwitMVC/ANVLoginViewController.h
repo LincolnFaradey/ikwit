@@ -7,8 +7,9 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "ANVConnectVCViewController.h"
 
-@interface ANVLoginViewController : UIViewController <UITextFieldDelegate>
+@interface ANVLoginViewController : ANVConnectVCViewController <UITextFieldDelegate>
 
 - (IBAction)unwindToLogin:(UIStoryboardSegue *)segue;
 

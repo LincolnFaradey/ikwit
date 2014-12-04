@@ -10,6 +10,8 @@
 #import <MobileCoreServices/MobileCoreServices.h>
 #import <MediaPlayer/MediaPlayer.h>
 #import "ANVKeyboardToolBar.h"
+#import "Post.h"
+#import "PostSharedManager.h"
 
 enum ActionListButtons {
     PHOTO_CAMERA_BUTTON = 0,
@@ -22,6 +24,7 @@ enum ActionListButtons {
 
 @property (strong, nonatomic) NSURL *videoURL;
 @property (strong, nonatomic) MPMoviePlayerController *videoController;
+@property (weak, nonatomic) IBOutlet UIScrollView *scrollView;
 @property (strong, nonatomic) ANVKeyboardToolBar *toolBar;
 @property (weak, nonatomic) IBOutlet UILabel *textLabel;
 
@@ -202,10 +205,6 @@ enum ActionListButtons {
     }];
 }
 
-- (void) touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event
-{
-    [self.view endEditing:YES];
-}
 
 - (void)sendButtonPushed:(id)sender
 {
@@ -214,5 +213,13 @@ enum ActionListButtons {
         NSLog(@"hi");
     }
     _textLabel.text = _toolBar.textField.text;
+    Post *post = [[Post alloc] initWithUser:[[NSUserDefaults standardUserDefaults] objectForKey:@"User"] withAnswer:_toolBar.textField.text];
+    
+    [[PostSharedManager sharedManager] addPost:post];
+}
+
+- (void) touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event
+{
+    [self.view endEditing:YES];
 }
 @end

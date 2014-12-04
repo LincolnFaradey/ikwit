@@ -7,10 +7,9 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "GHContextMenuView.h"
 @class ANVCustomCell;
-@class Question;
+@class Post;
 
-@interface ANVCustomViewController : UITableViewController <UITableViewDataSource, UITableViewDelegate, GHContextOverlayViewDataSource, GHContextOverlayViewDelegate>
+@interface ANVCustomViewController : UITableViewController <UITableViewDataSource, UITableViewDelegate>
 
 @end

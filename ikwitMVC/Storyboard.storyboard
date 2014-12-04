@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6250" systemVersion="14B23" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="97I-Mo-EqM">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6250" systemVersion="14C68m" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="ddt-Wa-bfo">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6244"/>
@@ -24,7 +24,7 @@
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
-                                    <segue destination="3w1-mT-yw9" kind="modal" id="OAV-CX-9wS"/>
+                                    <segue destination="3w1-mT-yw9" kind="modal" identifier="" id="OAV-CX-9wS"/>
                                 </connections>
                             </button>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" placeholderIntrinsicWidth="280" placeholderIntrinsicHeight="30" contentHorizontalAlignment="center" contentVerticalAlignment="center" placeholder="Login" textAlignment="center" minimumFontSize="17" background="textField" translatesAutoresizingMaskIntoConstraints="NO" id="8Y9-lb-FQQ">
@@ -54,7 +54,6 @@
                     <simulatedOrientationMetrics key="simulatedOrientationMetrics"/>
                     <connections>
                         <outlet property="loginTextField" destination="8Y9-lb-FQQ" id="kjR-YY-B0y"/>
-                        <outlet property="mainView" destination="UOc-2b-bkb" id="ASG-jd-fRs"/>
                         <outlet property="passwordTextField" destination="3TT-8u-qwH" id="GYX-x7-mof"/>
                         <outlet property="signInButton" destination="qah-XX-19K" id="421-dY-fZG"/>
                         <outlet property="signUpButton" destination="L7N-CF-rtU" id="Y2j-Do-YET"/>
@@ -125,20 +124,21 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="9wg-z8-nrc">
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
-                            </textView>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="vIu-us-9bo">
-                                <rect key="frame" x="16" y="72" width="148" height="149"/>
-                            </imageView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tNk-dd-ycC">
-                                <rect key="frame" x="16" y="229" width="540" height="200"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="lPj-Rl-eUE">
+                                <rect key="frame" x="16" y="72" width="288" height="363"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" alpha="0.10000000000000001" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tNk-dd-ycC">
+                                        <rect key="frame" x="8" y="8" width="272" height="147"/>
+                                        <color key="backgroundColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                        <color key="highlightedColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                    </label>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="vIu-us-9bo">
+                                        <rect key="frame" x="180" y="163" width="100" height="100"/>
+                                    </imageView>
+                                </subviews>
+                            </scrollView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
@@ -151,6 +151,7 @@
                     </navigationItem>
                     <connections>
                         <outlet property="image" destination="vIu-us-9bo" id="bqg-SA-NJf"/>
+                        <outlet property="scrollView" destination="lPj-Rl-eUE" id="8Tk-15-wTp"/>
                         <outlet property="textLabel" destination="tNk-dd-ycC" id="Rea-gd-DTa"/>
                     </connections>
                 </viewController>
@@ -311,7 +312,7 @@
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
-                                    <segue destination="Ss0-03-gE6" kind="unwind" unwindAction="unwindToLogin:" id="OJv-o1-0Xu"/>
+                                    <segue destination="Ss0-03-gE6" kind="unwind" identifier="UnwindToLogin" unwindAction="unwindToLogin:" id="OJv-o1-0Xu"/>
                                 </connections>
                             </button>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" placeholderIntrinsicWidth="280" placeholderIntrinsicHeight="30" contentHorizontalAlignment="center" contentVerticalAlignment="center" placeholder="Login" textAlignment="center" minimumFontSize="17" background="textField" translatesAutoresizingMaskIntoConstraints="NO" id="vJc-s4-MZ1">
@@ -374,6 +375,6 @@
         <simulatedScreenMetrics key="destination" type="retina4"/>
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
-        <segue reference="lRG-CY-TCR"/>
+        <segue reference="tp8-qQ-inP"/>
     </inferredMetricsTieBreakers>
 </document>

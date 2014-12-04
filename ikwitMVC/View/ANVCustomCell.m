@@ -7,7 +7,7 @@
 //
 
 #import "ANVCustomCell.h"
-@class ANVCustomViewController;
+//@class ANVCustomViewController;
 
 @interface ANVCustomCell ()
 
@@ -19,45 +19,50 @@
 {
     self = [super initWithStyle:style reuseIdentifier:@"ANVCustomCell"];
     if (self) {
-        self.userName.text = @"Andrey";
         CGRect frame = CGRectMake(240, 170, 30, 30);
-        self.likeButton = [[UIButton alloc] initWithFrame:frame];
+        _likeButton = [[UIButton alloc] initWithFrame:frame];
         _likeButton.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"Like"]];
         [self addSubview:_likeButton];
         
+        frame = CGRectMake(60, 50, 230, 120);
+        _contentLabel = [[UILabel alloc] initWithFrame:frame];
+        _contentLabel.layer.cornerRadius = 8.0;
+        _contentLabel.layer.masksToBounds = YES;
+        _contentLabel.backgroundColor = [UIColor colorWithHue:0.130 saturation:0.680 brightness:0.980 alpha:1];
+        [self addSubview:_contentLabel];
         
         frame = CGRectMake(290, 170, 30, 30);
-        self.likeCounter = [[UILabel alloc] initWithFrame:frame];
+        _likeCounter = [[UILabel alloc] initWithFrame:frame];
         _likeCounter.text = @"0";
         [self addSubview:_likeCounter];
         
         frame = CGRectMake(280, 10, 30, 30);
-        self.moreButton = [[UIButton alloc] initWithFrame:frame];
+        _moreButton = [[UIButton alloc] initWithFrame:frame];
         _moreButton.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"more"]];
         [self addSubview:_moreButton];
         
         frame = CGRectMake(200, 170, 30, 30);
-        self.favoriteButton = [[UIButton alloc] initWithFrame:frame];
+        _favoriteButton = [[UIButton alloc] initWithFrame:frame];
         _favoriteButton.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"Favorite"]];
         [self addSubview:_favoriteButton];
         
         frame = CGRectMake(10, 170, 30, 30);
-        self.commentsButton = [[UIButton alloc] initWithFrame:frame];
+        _commentsButton = [[UIButton alloc] initWithFrame:frame];
         _commentsButton.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"answers"]];
         [self addSubview:_commentsButton];
         
         frame = CGRectMake(50, 170, 30, 30);
-        self.commentsCounter = [[UILabel alloc] initWithFrame:frame];
+        _commentsCounter = [[UILabel alloc] initWithFrame:frame];
         _commentsCounter.text = @"0";
         [self addSubview:_commentsCounter];
         
         frame = CGRectMake(70, 10, 160, 35);
-        self.userName = [[UILabel alloc] initWithFrame:frame];
+        _userName = [[UILabel alloc] initWithFrame:frame];
         _userName.text = @"User";
         [self addSubview:_userName];
         
         frame = CGRectMake(5, 5, 60, 60);
-        self.userIcon = [[UIButton alloc] initWithFrame:frame];
+        _userIcon = [[UIButton alloc] initWithFrame:frame];
         _userIcon.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"ava"]];
         [self addSubview:_userIcon];
     }

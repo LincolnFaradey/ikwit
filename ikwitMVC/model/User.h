@@ -10,13 +10,9 @@
 
 @interface User : NSObject
 
-- (instancetype)initWithLogin:(NSString *)login
-                    withEmail:(NSString *)email
-                 withPassword:(NSString *)password
-           andConfirmPassword:(NSString *)c_password;
+@property (strong, nonatomic)NSString *login;
+@property (strong, nonatomic)UIImage *avatar;
 
-- (void)sendUserOnServer;
-
-- (NSDictionary *)dictionary;
+- (void)decodeAvatar:(NSString *)encodedString;
 
 @end
