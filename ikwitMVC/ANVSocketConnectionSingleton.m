@@ -11,14 +11,11 @@
 
 @interface ANVSocketConnectionSingleton ()
 
-@property (nonatomic)GCDAsyncSocket *socket;
-
 @end
 
 @implementation ANVSocketConnectionSingleton
-@synthesize socket;
 
-static NSString *HOST_NAME = @"192.168.1.7";
+static NSString *HOST_NAME = @"localhost"; //192.168.1.7
 
 + (id)sharedManager
 {
@@ -46,7 +43,6 @@ static NSString *HOST_NAME = @"192.168.1.7";
 {
     NSError *err;
     if (![socket connectToHost:HOST_NAME onPort:port error:&err]) {
-        //TODO Alert
         NSLog(@"unabe to connect to port: %ui", port);
     }
 }
@@ -54,11 +50,48 @@ static NSString *HOST_NAME = @"192.168.1.7";
 - (void)socket:(GCDAsyncSocket *)sender didConnectToHost:(NSString *)host port:(UInt16)port
 {
     NSLog(@"Connected");
+//    NSDictionary *loginInformation = @{@"login" : @"Andrei", @"password" : @"pass"};
+//    
+//    NSData *data = [NSJSONSerialization dataWithJSONObject:loginInformation
+//                                                   options:NSJSONWritingPrettyPrinted
+//                                                     error:nil];
+//    [self readAndWriteDataToSocket:data];
 }
 
 - (void)socket:(GCDAsyncSocket *)sock didReadData:(NSData *)data withTag:(long)tag
 {
-    
+    NSString *msg = [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding];
+    if ([msg isEqualToString:@"ok"]) {
+        NSLog(@"Data is read - %@", msg);
+        [[NSNotificationCenter defaultCenter] postNotificationName:@"Success" object:nil];
+    }
+}
+
+- (void)readAndWriteDataToSocket:(NSData *)data
+{
+    [socket readDataWithTimeout:-1 tag:1];
+    [socket writeData:data withTimeout:-1 tag:1];
+}
+
+- (void)disconectSocket
+{
+    [socket disconnect];
+}
+
+///////////////////////
+
+- (void)socket:(GCDAsyncSocket *)sock didWriteDataWithTag:(long)tag
+{
+    NSLog(@"Wrote data");
+}
+
+- (void)socket:(GCDAsyncSocket *)sock didWritePartialDataOfLength:(NSUInteger)partialLength tag:(long)tag
+{
+    NSLog(@"Wrote data");
+}
+
+- (void)socketDidDisconnect:(GCDAsyncSocket *)sock withError:(NSError *)err{
+    NSLog(@"Disconected");
 }
 
 

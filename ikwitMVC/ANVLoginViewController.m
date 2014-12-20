@@ -7,9 +7,11 @@
 //
 
 #import "ANVLoginViewController.h"
-#import "GCDAsyncSocket.h"
+#import "ANVSocketConnectionSingleton.h"
 
-@interface ANVLoginViewController ()
+@interface ANVLoginViewController (){
+    ANVSocketConnectionSingleton *connection;
+}
 
 @property (weak, nonatomic) IBOutlet UITextField *loginTextField;
 @property (weak, nonatomic) IBOutlet UITextField *passwordTextField;
@@ -35,6 +37,8 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    connection = [ANVSocketConnectionSingleton sharedManager];
+    [connection connectToPort:1477];
     _loginTextField.delegate = self;
     _passwordTextField.delegate = self;
     
@@ -65,13 +69,10 @@
 }
 
 
-
 #pragma mark - Login button
 - (IBAction)signInPressed:(id)sender {
     NSData *data = [self prepareForServer];
-    [self.socket readDataWithTimeout:-1 tag:0]; //if you need to get more than one response
-    [self.socket writeData:data withTimeout:-1 tag:1];
-    
+    [connection readAndWriteDataToSocket:data];
     self.timer = [NSTimer scheduledTimerWithTimeInterval:6.0 target:self selector:@selector(interruptAttempt:) userInfo:nil repeats:NO];
 
     [self showIndicator];
@@ -99,7 +100,7 @@
     
     NSString *msg = [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding];
     NSLog(@"%@", msg);
-    self.didGetResponse = ([msg length] >= 40) ? YES : NO;
+    self.didGetResponse = [msg length] >= 40;
     
     if (self.didGetResponse)
     {
@@ -132,7 +133,7 @@
         [userDefaults setObject:_loginTextField.text forKey:@"User"];
         [userDefaults synchronize];
     }
-    [self.socket disconnect];
+    [connection disconectSocket];
 }
 
 #pragma mark - View Control
@@ -147,7 +148,7 @@
 - (void)keyboardWillShow:(NSNotification *)notification
 {
     NSDictionary* info = [notification userInfo];
-    CGSize kbSize = [[info objectForKey:UIKeyboardFrameBeginUserInfoKey] CGRectValue].size;
+    CGSize kbSize = [info[UIKeyboardFrameBeginUserInfoKey] CGRectValue].size;
     
     [UIView animateWithDuration:1.0f animations:^{
         if ([[UIScreen mainScreen] bounds].size.height < 500.0f) {
@@ -161,7 +162,7 @@
 - (void)keyboardWillBeHidden:(NSNotification *)notification
 {
     NSDictionary* info = [notification userInfo];
-    CGSize kbSize = [[info objectForKey:UIKeyboardFrameBeginUserInfoKey] CGRectValue].size;
+    CGSize kbSize = [info[UIKeyboardFrameBeginUserInfoKey] CGRectValue].size;
     
     [UIView animateWithDuration:1.0f animations:^{
         if ([[UIScreen mainScreen] bounds].size.height < 500.0f) {

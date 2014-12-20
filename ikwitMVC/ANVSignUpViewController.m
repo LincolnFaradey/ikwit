@@ -7,9 +7,13 @@
 //
 
 #import "ANVSignUpViewController.h"
+#import "ANVSocketConnectionSingleton.h"
 #import "User.h"
 
-@interface ANVSignUpViewController ()
+@interface ANVSignUpViewController () {
+    ANVSocketConnectionSingleton *connection;
+}
+
 
 @property (strong, nonatomic) IBOutlet UIView *mainView;
 
@@ -39,6 +43,7 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    connection = [ANVSocketConnectionSingleton sharedManager];
     _loginTF.delegate = self;
     _emailTF.delegate = self;
     _passwordTF.delegate = self;
@@ -62,9 +67,7 @@
 {
     NSData *data = [self prepareForServer];
     if (data) {
-        [self.socket readDataWithTimeout:-1 tag:0];
-        [self.socket writeData:data withTimeout:-1 tag:1];
-        
+        [connection readAndWriteDataToSocket:data];
         self.timer = [NSTimer scheduledTimerWithTimeInterval:6.0 target:self selector:@selector(interruptAttempt:) userInfo:nil repeats:NO];
         
         [self showIndicator];
@@ -121,7 +124,6 @@
     if (self.didGetResponse) {
         [self performSegueWithIdentifier:@"UnwindToLogin" sender:self];
     }
-    [self.socket disconnect];
 }
 
 - (BOOL) validateEmail: (NSString *)candidate {
@@ -132,13 +134,10 @@
 }
 
 #pragma mark - keyboard moving
-
-
-
 - (void)keyboardWillShow:(NSNotification *)notification
 {
     NSDictionary* info = [notification userInfo];
-    CGSize kbSize = [[info objectForKey:UIKeyboardFrameBeginUserInfoKey] CGRectValue].size;
+    CGSize kbSize = [info[UIKeyboardFrameBeginUserInfoKey] CGRectValue].size;
     
     [UIView animateWithDuration:1.0f animations:^{
         CGRect rect = self.mainView.frame;
