@@ -37,7 +37,10 @@
 
 - (void)fillStore
 {
-    Question *answ = [[Question alloc] initWithUser:@"Andrei Nechaev" withAnswer:@"My First Answer" withLikes:arc4random() % 44 withComments:arc4random() % 100];
+    Question *answ = [[Question alloc] initWithUser:@"Andrei Nechaev"
+                                         withAnswer:@"My First Answer"
+                                          withLikes:arc4random() % 44
+                                       withComments:arc4random() % 100];
     [sharedStore addObject:answ];
 }
 
