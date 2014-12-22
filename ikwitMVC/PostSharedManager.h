@@ -7,15 +7,16 @@
 //
 
 #import <Foundation/Foundation.h>
+@class Post;
 
-@interface QuestionSharedManager : NSObject{
+@interface PostSharedManager : NSObject{
     NSMutableArray *sharedStore;
 }
 
 + (id)sharedManager;
 
+- (void)addPost:(Post *)post;
 - (NSUInteger)length;
-- (void)fillStore;
 - (NSArray *)returnAnswers;
 
 @end

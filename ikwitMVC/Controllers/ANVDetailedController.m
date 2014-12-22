@@ -7,12 +7,13 @@
 //
 
 #import "ANVDetailedController.h"
-#import "QuestionSharedManager.h"
-#import "Question.h"
+#import "PostSharedManager.h"
+#import "Post.h"
+#import "Comment.h"
 #import "ANVCustomCell.h"
 
 @interface ANVDetailedController (){
-    QuestionSharedManager *questionSM;
+    PostSharedManager *questionSM;
 }
 
 @end
@@ -23,7 +24,7 @@
     [super viewDidLoad];
     self.tableView.delegate = self;
     self.tableView.dataSource = self;
-    questionSM = [QuestionSharedManager sharedManager];
+    questionSM = [PostSharedManager sharedManager];
     
     // Uncomment the following line to preserve selection between presentations.
     // self.clearsSelectionOnViewWillAppear = NO;
@@ -34,7 +35,7 @@
 
 -(void) viewWillAppear:(BOOL)animated
 {
-    self.navigationController.hidesBarsOnSwipe = YES;
+    [super viewWillAppear:animated];
 }
 
 
@@ -81,14 +82,20 @@
         mainCell = [[ANVCustomCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"ANVCustomCell"];
     }
     if (indexPath.section == 0) {
-        mainCell.userName.text = self.question.authorName;
-        mainCell.likeCounter.text = [NSString stringWithFormat:@"%lu", (unsigned long)self.question.likeCounter];
-        mainCell.commentsCounter.text = [NSString stringWithFormat:@"%lu", (unsigned long)self.question.likeCounter];
+        mainCell.userName.text = _question.authorName;
+        mainCell.likeCounter.text = [NSString stringWithFormat:@"%lu", (unsigned long)_question.likeCounter];
+        mainCell.commentsCounter.text = [NSString stringWithFormat:@"%lu", (unsigned long)_question.commentsCounter];
+        mainCell.contentLabel.text = [NSString stringWithFormat:@"%@", _question.answerText];
         return mainCell;
     }else{
-        Question *answer = [[questionSM returnAnswers] objectAtIndex:indexPath.row];
-        cell.textLabel.text = answer.authorName;
-        cell.detailTextLabel.text = answer.answerText;
+        NSArray *comments = [_question returnComments];
+        if ([comments count] > 0) {
+            Comment *comment = [comments objectAtIndex:indexPath.row];
+            cell.textLabel.numberOfLines = 0;
+            cell.textLabel.text = _question.authorName;
+            cell.detailTextLabel.text = comment.text;
+        }
+        
         return cell;
     }
     

@@ -7,10 +7,10 @@
 //
 
 #import <UIKit/UIKit.h>
-@class Question;
+@class Post;
 
 @interface ANVDetailedController : UITableViewController <UITableViewDataSource, UITableViewDelegate>
 
-@property (nonatomic, strong)Question *question;
+@property (nonatomic, strong)Post *question;
 
 @end

@@ -7,9 +7,9 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "ANVConnectVCViewController.h"
 
-@interface ANVSignUpViewController : UIViewController <UITextFieldDelegate>
-
+@interface ANVSignUpViewController : ANVConnectVCViewController <UITextFieldDelegate>
 
 
 @end

@@ -9,6 +9,7 @@
 #import "ANVFavoriteViewController.h"
 
 @interface ANVFavoriteViewController ()
+@property (strong, nonatomic) IBOutlet UITableView *tableView;
 
 @end
 

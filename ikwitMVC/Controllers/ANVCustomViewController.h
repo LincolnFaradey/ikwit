@@ -7,17 +7,9 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "GHContextMenuView.h"
 @class ANVCustomCell;
-@class Question;
+@class Post;
 
-@interface ANVCustomViewController : UITableViewController <UITableViewDataSource, UITableViewDelegate, GHContextOverlayViewDataSource, GHContextOverlayViewDelegate>
-
-
-- (void)moreButtonBeenPressed:(id)sender;
-- (void)likeButtonBeenPressed:(id)sender;
-- (void)favoriteButtonBeenPressed:(id)sender;
-- (void)commentsButtonBeenPressed:(id)sender;
-- (void)userIconBeenPressed:(id)sender;
+@interface ANVCustomViewController : UITableViewController <UITableViewDataSource, UITableViewDelegate>
 
 @end

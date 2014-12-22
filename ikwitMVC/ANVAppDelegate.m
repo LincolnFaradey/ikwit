@@ -13,9 +13,6 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
-    User *user = [[User alloc] init];
-    [user sendUserOnServer];
-    NSLog(@"%@", user);
     return YES;
 }
 
