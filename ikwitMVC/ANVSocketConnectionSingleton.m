@@ -73,7 +73,7 @@ static NSString *HOST_NAME = @"localhost"; //192.168.1.7
     [socket writeData:data withTimeout:-1 tag:1];
 }
 
-- (void)disconectSocket
+- (void)disconnectSocket
 {
     [socket disconnect];
 }

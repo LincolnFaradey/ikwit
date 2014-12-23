@@ -133,7 +133,7 @@
         [userDefaults setObject:_loginTextField.text forKey:@"User"];
         [userDefaults synchronize];
     }
-    [connection disconectSocket];
+    [connection disconnectSocket];
 }
 
 #pragma mark - View Control

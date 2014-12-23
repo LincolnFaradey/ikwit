@@ -9,6 +9,12 @@
 #import <Foundation/Foundation.h>
 @class GCDAsyncSocket;
 
+@protocol ANVSocketConnectionSingletonDelegate
+
+- (void)didReceiveData:(NSData *)data;
+
+@end
+
 @interface ANVSocketConnectionSingleton : NSObject {
     GCDAsyncSocket *socket;
 }
@@ -16,6 +22,6 @@
 + (id)sharedManager;
 - (void)connectToPort:(UInt16)port;
 - (void)readAndWriteDataToSocket:(NSData *)data;
-- (void)disconectSocket;
+- (void)disconnectSocket;
 
 @end
