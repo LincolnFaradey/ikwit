@@ -15,7 +15,7 @@
 
 @implementation ANVSocketConnectionSingleton
 
-static NSString *HOST_NAME = @"localhost"; //192.168.1.7
+static NSString *HOST_NAME = @"192.168.1.14"; //192.168.1.7
 
 + (id)sharedManager
 {
@@ -50,21 +50,11 @@ static NSString *HOST_NAME = @"localhost"; //192.168.1.7
 - (void)socket:(GCDAsyncSocket *)sender didConnectToHost:(NSString *)host port:(UInt16)port
 {
     NSLog(@"Connected");
-//    NSDictionary *loginInformation = @{@"login" : @"Andrei", @"password" : @"pass"};
-//    
-//    NSData *data = [NSJSONSerialization dataWithJSONObject:loginInformation
-//                                                   options:NSJSONWritingPrettyPrinted
-//                                                     error:nil];
-//    [self readAndWriteDataToSocket:data];
 }
 
 - (void)socket:(GCDAsyncSocket *)sock didReadData:(NSData *)data withTag:(long)tag
 {
-    NSString *msg = [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding];
-    if ([msg isEqualToString:@"ok"]) {
-        NSLog(@"Data is read - %@", msg);
-        [[NSNotificationCenter defaultCenter] postNotificationName:@"Success" object:nil];
-    }
+    [_delegate didReceiveData:data];
 }
 
 - (void)readAndWriteDataToSocket:(NSData *)data
@@ -81,11 +71,6 @@ static NSString *HOST_NAME = @"localhost"; //192.168.1.7
 ///////////////////////
 
 - (void)socket:(GCDAsyncSocket *)sock didWriteDataWithTag:(long)tag
-{
-    NSLog(@"Wrote data");
-}
-
-- (void)socket:(GCDAsyncSocket *)sock didWritePartialDataOfLength:(NSUInteger)partialLength tag:(long)tag
 {
     NSLog(@"Wrote data");
 }

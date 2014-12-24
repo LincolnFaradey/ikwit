@@ -8,9 +8,9 @@
 
 #import <UIKit/UIKit.h>
 #import "GCDAsyncSocket.h"
+#import "ANVAdditionalMethods.h"
 
 static NSString *TCP_NOTIFICATION_SUCCESS = @"Success";
-static NSString *HOST = @"192.168.1.7";  //192.168.1.7 for homesharing
 
 @interface ANVConnectVCViewController : UIViewController
 
@@ -22,5 +22,6 @@ static NSString *HOST = @"192.168.1.7";  //192.168.1.7 for homesharing
 
 - (void)showIndicator;
 - (void)interruptAttempt:(NSNotification *)notification;
+
 
 @end

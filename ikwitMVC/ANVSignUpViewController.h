@@ -8,8 +8,9 @@
 
 #import <UIKit/UIKit.h>
 #import "ANVConnectVCViewController.h"
+#import "ANVSocketConnectionSingleton.h"
 
-@interface ANVSignUpViewController : ANVConnectVCViewController <UITextFieldDelegate>
+@interface ANVSignUpViewController : ANVConnectVCViewController <UITextFieldDelegate, ANVSocketConnectionSingletonDelegate>
 
 
 @end

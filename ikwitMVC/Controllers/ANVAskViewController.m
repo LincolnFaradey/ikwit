@@ -7,7 +7,6 @@
 //
 
 #import "ANVAskViewController.h"
-#import <MobileCoreServices/MobileCoreServices.h>
 #import <MediaPlayer/MediaPlayer.h>
 #import "ANVKeyboardToolBar.h"
 #import "Post.h"
@@ -123,7 +122,7 @@ enum ActionListButtons {
     }
 }
 
-#pragma mark - ImagePicker metods
+#pragma mark - ImagePicker methods
 
 - (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary *)info
 {
@@ -188,7 +187,7 @@ enum ActionListButtons {
 - (void)keyboardWillShow:(NSNotification *)notification
 {
     NSDictionary* info = [notification userInfo];
-    CGSize kbSize = [[info objectForKey:UIKeyboardFrameBeginUserInfoKey] CGRectValue].size;
+    CGSize kbSize = [info[UIKeyboardFrameBeginUserInfoKey] CGRectValue].size;
     
     [UIView animateWithDuration:1.0f animations:^{
         _toolBar.frame = CGRectMake(_toolBar.frame.origin.x, _toolBar.frame.origin.y - kbSize.height, _toolBar.frame.size.width, _toolBar.frame.size.height);
@@ -198,7 +197,7 @@ enum ActionListButtons {
 - (void)keyboardWillHide:(NSNotification *)notification
 {
     NSDictionary* info = [notification userInfo];
-    CGSize kbSize = [[info objectForKey:UIKeyboardFrameBeginUserInfoKey] CGRectValue].size;
+    CGSize kbSize = [info[UIKeyboardFrameBeginUserInfoKey] CGRectValue].size;
     
     [UIView animateWithDuration:1.0f animations:^{
         _toolBar.frame = CGRectMake(_toolBar.frame.origin.x, _toolBar.frame.origin.y + kbSize.height, _toolBar.frame.size.width, _toolBar.frame.size.height);

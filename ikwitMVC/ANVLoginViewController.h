@@ -8,9 +8,9 @@
 
 #import <UIKit/UIKit.h>
 #import "ANVConnectVCViewController.h"
+#import "ANVSocketConnectionSingleton.h"
 
-@interface ANVLoginViewController : ANVConnectVCViewController <UITextFieldDelegate>
+@interface ANVLoginViewController : ANVConnectVCViewController <UITextFieldDelegate, ANVSocketConnectionSingletonDelegate>
 
 - (IBAction)unwindToLogin:(UIStoryboardSegue *)segue;
-
 @end

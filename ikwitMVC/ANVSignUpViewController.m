@@ -7,8 +7,7 @@
 //
 
 #import "ANVSignUpViewController.h"
-#import "ANVSocketConnectionSingleton.h"
-#import "User.h"
+
 
 @interface ANVSignUpViewController () {
     ANVSocketConnectionSingleton *connection;
@@ -23,9 +22,6 @@
 @property (weak, nonatomic) IBOutlet UITextField *conf_passwordTF;
 
 @property (weak, nonatomic) IBOutlet UIButton *sign_up_button;
-
-- (void) keyboardWillShow:(NSNotification *)notification;
-- (void) keyboardWillBeHidden:(NSNotification *)notification;
 
 @end
 
@@ -44,6 +40,7 @@
 {
     [super viewDidLoad];
     connection = [ANVSocketConnectionSingleton sharedManager];
+    connection.delegate = self;
     _loginTF.delegate = self;
     _emailTF.delegate = self;
     _passwordTF.delegate = self;
@@ -52,7 +49,6 @@
     [_sign_up_button addTarget:self
                         action:@selector(signUpPressed:)
               forControlEvents:UIControlEventTouchDown];
-    // Do any additional setup after loading the view.
     self.view.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"bg2"]];
 }
 
@@ -60,7 +56,6 @@
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
 }
 
 - (void)signUpPressed:(id)sender
@@ -107,25 +102,6 @@
     return nil;
 }
 
--(void)socket:(GCDAsyncSocket *)sock didReadData:(NSData *)data withTag:(long)tag
-{
-    NSString *msg = [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding];
-    NSLog(@"%@", msg);
-    if ([msg  isEqual: @"ok"]) {
-        self.didGetResponse = YES;
-        [[NSNotificationCenter defaultCenter] postNotificationName:TCP_NOTIFICATION_SUCCESS object:nil];
-    }
-}
-
-- (void)loginSuccess:(NSNotification *)note
-{
-    [self.timer invalidate];
-    [self.indicatorView stopAnimating];
-    if (self.didGetResponse) {
-        [self performSegueWithIdentifier:@"UnwindToLogin" sender:self];
-    }
-}
-
 - (BOOL) validateEmail: (NSString *)candidate {
     NSString *emailRegex = @"[A-Z0-9a-z._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,6}";
     NSPredicate *emailTest = [NSPredicate predicateWithFormat:@"SELF MATCHES %@", emailRegex];
@@ -149,7 +125,7 @@
 - (void)keyboardWillBeHidden:(NSNotification *)notification
 {
     NSDictionary* info = [notification userInfo];
-    CGSize kbSize = [[info objectForKey:UIKeyboardFrameBeginUserInfoKey] CGRectValue].size;
+    CGSize kbSize = [info[UIKeyboardFrameBeginUserInfoKey] CGRectValue].size;
     
     [UIView animateWithDuration:1.0f animations:^{
         CGRect rect = self.mainView.frame;
@@ -158,5 +134,17 @@
     }];
 }
 
+- (void)didReceiveData:(NSData *)data {
+    NSString *msg = [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding];
+    NSLog(@"inside d - %@", msg);
+    if ([msg  isEqual: @"ok"]) {
+        self.didGetResponse = YES;
+        [self.timer invalidate];
+        [self.indicatorView stopAnimating];
+        if (self.didGetResponse) {
+            [self performSegueWithIdentifier:@"UnwindToLogin" sender:self];
+        }
+    }
+}
 
 @end

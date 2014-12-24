@@ -15,7 +15,6 @@
 		7F5366591989CCA4000F77D1 /* ANVFavoriteViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7F5366581989CCA4000F77D1 /* ANVFavoriteViewController.m */; };
 		7F536660198C5F30000F77D1 /* ANVMostViewedViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7F53665F198C5F30000F77D1 /* ANVMostViewedViewController.m */; };
 		7F536663198C62FD000F77D1 /* ANVFeedViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7F536662198C62FD000F77D1 /* ANVFeedViewController.m */; };
-		7F536666198C6446000F77D1 /* ANVNotificationsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7F536665198C6446000F77D1 /* ANVNotificationsViewController.m */; };
 		7F53666E198EF502000F77D1 /* Post.m in Sources */ = {isa = PBXBuildFile; fileRef = 7F53666D198EF502000F77D1 /* Post.m */; };
 		7F536671198EFAF9000F77D1 /* PostSharedManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 7F536670198EFAF9000F77D1 /* PostSharedManager.m */; };
 		7F5EEB9419E1FDB9007F514D /* ANVLoginToMain.m in Sources */ = {isa = PBXBuildFile; fileRef = 7F5EEB9319E1FDB9007F514D /* ANVLoginToMain.m */; };
@@ -54,8 +53,8 @@
 /* Begin PBXFileReference section */
 		7F41C6891A302FD300F0B8F9 /* ANVSocketConnectionSingleton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ANVSocketConnectionSingleton.h; sourceTree = "<group>"; };
 		7F41C68A1A302FD300F0B8F9 /* ANVSocketConnectionSingleton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ANVSocketConnectionSingleton.m; sourceTree = "<group>"; };
-		7F4C97051A1D4A790040F644 /* ANVConnectVCViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ANVConnectVCViewController.h; path = Controllers/ANVConnectVCViewController.h; sourceTree = "<group>"; };
-		7F4C97061A1D4A790040F644 /* ANVConnectVCViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ANVConnectVCViewController.m; path = Controllers/ANVConnectVCViewController.m; sourceTree = "<group>"; };
+		7F4C97051A1D4A790040F644 /* ANVConnectVCViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ANVConnectVCViewController.h; path = ikwitMVC/Controllers/ANVConnectVCViewController.h; sourceTree = "<group>"; };
+		7F4C97061A1D4A790040F644 /* ANVConnectVCViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ANVConnectVCViewController.m; path = ikwitMVC/Controllers/ANVConnectVCViewController.m; sourceTree = "<group>"; };
 		7F52B90B1A25C7C2000B34A2 /* Comment.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Comment.h; path = model/Comment.h; sourceTree = "<group>"; };
 		7F52B90C1A25C7C2000B34A2 /* Comment.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Comment.m; path = model/Comment.m; sourceTree = "<group>"; };
 		7F53664F19806DAF000F77D1 /* ANVCustomCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ANVCustomCell.h; path = View/ANVCustomCell.h; sourceTree = "<group>"; };
@@ -68,8 +67,6 @@
 		7F53665F198C5F30000F77D1 /* ANVMostViewedViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ANVMostViewedViewController.m; path = Controllers/ANVMostViewedViewController.m; sourceTree = "<group>"; };
 		7F536661198C62FD000F77D1 /* ANVFeedViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ANVFeedViewController.h; path = Controllers/ANVFeedViewController.h; sourceTree = "<group>"; };
 		7F536662198C62FD000F77D1 /* ANVFeedViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ANVFeedViewController.m; path = Controllers/ANVFeedViewController.m; sourceTree = "<group>"; };
-		7F536664198C6446000F77D1 /* ANVNotificationsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ANVNotificationsViewController.h; path = Controllers/ANVNotificationsViewController.h; sourceTree = "<group>"; };
-		7F536665198C6446000F77D1 /* ANVNotificationsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ANVNotificationsViewController.m; path = Controllers/ANVNotificationsViewController.m; sourceTree = "<group>"; };
 		7F53666C198EF502000F77D1 /* Post.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Post.h; path = model/Post.h; sourceTree = "<group>"; };
 		7F53666D198EF502000F77D1 /* Post.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Post.m; path = model/Post.m; sourceTree = "<group>"; };
 		7F53666F198EFAF9000F77D1 /* PostSharedManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PostSharedManager.h; sourceTree = "<group>"; };
@@ -80,6 +77,7 @@
 		7F71BE031A00FC5C00AADD1B /* ANVKeyboardToolBar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ANVKeyboardToolBar.m; path = View/ANVKeyboardToolBar.m; sourceTree = "<group>"; };
 		7F73533B19B2587A00A81612 /* ANVAskViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ANVAskViewController.h; path = Controllers/ANVAskViewController.h; sourceTree = "<group>"; };
 		7F73533C19B2587A00A81612 /* ANVAskViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ANVAskViewController.m; path = Controllers/ANVAskViewController.m; sourceTree = "<group>"; };
+		7F7C4F6D1A4A77C500B668BA /* ANVAdditionalMethods.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ANVAdditionalMethods.h; path = ikwitMVC/ANVAdditionalMethods.h; sourceTree = "<group>"; };
 		7FA1360E196B8B62003B071D /* ikwit.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ikwit.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7FA13611196B8B62003B071D /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		7FA13613196B8B62003B071D /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -97,10 +95,10 @@
 		7FA13634196B8B62003B071D /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		7FA13636196B8B62003B071D /* ikwitMVCTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ikwitMVCTests.m; sourceTree = "<group>"; };
 		7FA1364C196B8E37003B071D /* Storyboard.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Storyboard.storyboard; sourceTree = "<group>"; };
-		7FA1364E196B95FF003B071D /* ANVLoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ANVLoginViewController.h; sourceTree = "<group>"; };
-		7FA1364F196B95FF003B071D /* ANVLoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ANVLoginViewController.m; sourceTree = "<group>"; };
-		7FA13651196B96F9003B071D /* ANVSignUpViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ANVSignUpViewController.h; sourceTree = "<group>"; };
-		7FA13652196B96F9003B071D /* ANVSignUpViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ANVSignUpViewController.m; sourceTree = "<group>"; };
+		7FA1364E196B95FF003B071D /* ANVLoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ANVLoginViewController.h; path = ikwitMVC/ANVLoginViewController.h; sourceTree = "<group>"; };
+		7FA1364F196B95FF003B071D /* ANVLoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ANVLoginViewController.m; path = ikwitMVC/ANVLoginViewController.m; sourceTree = "<group>"; };
+		7FA13651196B96F9003B071D /* ANVSignUpViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ANVSignUpViewController.h; path = ikwitMVC/ANVSignUpViewController.h; sourceTree = "<group>"; };
+		7FA13652196B96F9003B071D /* ANVSignUpViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ANVSignUpViewController.m; path = ikwitMVC/ANVSignUpViewController.m; sourceTree = "<group>"; };
 		7FA13655196CB1C6003B071D /* User.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = User.h; path = model/User.h; sourceTree = "<group>"; };
 		7FA13656196CB1C6003B071D /* User.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = User.m; path = model/User.m; sourceTree = "<group>"; };
 		7FE3B54819E118740078B65D /* GCDAsyncSocket.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GCDAsyncSocket.h; sourceTree = "<group>"; };
@@ -154,10 +152,6 @@
 				7F53665F198C5F30000F77D1 /* ANVMostViewedViewController.m */,
 				7F536661198C62FD000F77D1 /* ANVFeedViewController.h */,
 				7F536662198C62FD000F77D1 /* ANVFeedViewController.m */,
-				7F536664198C6446000F77D1 /* ANVNotificationsViewController.h */,
-				7F536665198C6446000F77D1 /* ANVNotificationsViewController.m */,
-				7F4C97051A1D4A790040F644 /* ANVConnectVCViewController.h */,
-				7F4C97061A1D4A790040F644 /* ANVConnectVCViewController.m */,
 			);
 			name = MainControllers;
 			sourceTree = "<group>";
@@ -184,11 +178,26 @@
 			name = SharedManagers;
 			sourceTree = "<group>";
 		};
-		7FA13605196B8B62003B071D = {
+		7F7C4F691A4A76DB00B668BA /* WlcomeScreenControllers */ = {
 			isa = PBXGroup;
 			children = (
 				7F5EEB9219E1FDB9007F514D /* ANVLoginToMain.h */,
 				7F5EEB9319E1FDB9007F514D /* ANVLoginToMain.m */,
+				7F4C97061A1D4A790040F644 /* ANVConnectVCViewController.m */,
+				7FA13651196B96F9003B071D /* ANVSignUpViewController.h */,
+				7FA13652196B96F9003B071D /* ANVSignUpViewController.m */,
+				7FA1364E196B95FF003B071D /* ANVLoginViewController.h */,
+				7FA1364F196B95FF003B071D /* ANVLoginViewController.m */,
+				7F4C97051A1D4A790040F644 /* ANVConnectVCViewController.h */,
+			);
+			name = WlcomeScreenControllers;
+			path = ..;
+			sourceTree = "<group>";
+		};
+		7FA13605196B8B62003B071D = {
+			isa = PBXGroup;
+			children = (
+				7F7C4F6D1A4A77C500B668BA /* ANVAdditionalMethods.h */,
 				7FFABC1A19D2479A00983E81 /* ANVDetailedController.h */,
 				7FFABC1B19D2479A00983E81 /* ANVDetailedController.m */,
 				7FA13617196B8B62003B071D /* ikwitMVC */,
@@ -221,6 +230,7 @@
 		7FA13617196B8B62003B071D /* ikwitMVC */ = {
 			isa = PBXGroup;
 			children = (
+				7F7C4F691A4A76DB00B668BA /* WlcomeScreenControllers */,
 				7F536672198EFB01000F77D1 /* SharedManagers */,
 				7F5366561989CC57000F77D1 /* SuperClasses */,
 				7F53664B19806D0A000F77D1 /* View */,
@@ -269,10 +279,6 @@
 			isa = PBXGroup;
 			children = (
 				7F53665219807080000F77D1 /* MainControllers */,
-				7FA13651196B96F9003B071D /* ANVSignUpViewController.h */,
-				7FA13652196B96F9003B071D /* ANVSignUpViewController.m */,
-				7FA1364E196B95FF003B071D /* ANVLoginViewController.h */,
-				7FA1364F196B95FF003B071D /* ANVLoginViewController.m */,
 			);
 			name = Controller;
 			sourceTree = "<group>";
@@ -404,7 +410,6 @@
 				7FA13622196B8B62003B071D /* ANVAppDelegate.m in Sources */,
 				7FA1361E196B8B62003B071D /* main.m in Sources */,
 				7F73533D19B2587A00A81612 /* ANVAskViewController.m in Sources */,
-				7F536666198C6446000F77D1 /* ANVNotificationsViewController.m in Sources */,
 				7FA13653196B96F9003B071D /* ANVSignUpViewController.m in Sources */,
 				7F41C68B1A302FD300F0B8F9 /* ANVSocketConnectionSingleton.m in Sources */,
 				7F536671198EFAF9000F77D1 /* PostSharedManager.m in Sources */,
@@ -528,13 +533,14 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
-				CODE_SIGN_IDENTITY = "iPhone Developer: Andrey Nechaev (VVC3FJJP5H)";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Andrey Nechaev (VVC3FJJP5H)";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "ikwitMVC/ikwit-Prefix.pch";
 				INFOPLIST_FILE = "ikwitMVC/ikwit-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				PRODUCT_NAME = ikwit;
-				PROVISIONING_PROFILE = "ce320489-2bab-4c87-8088-525cd51a81ac";
+				PROVISIONING_PROFILE = "";
 				SDKROOT = iphoneos;
 				WRAPPER_EXTENSION = app;
 			};
@@ -545,13 +551,14 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
-				CODE_SIGN_IDENTITY = "iPhone Developer: Andrey Nechaev (VVC3FJJP5H)";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Andrey Nechaev (VVC3FJJP5H)";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "ikwitMVC/ikwit-Prefix.pch";
 				INFOPLIST_FILE = "ikwitMVC/ikwit-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				PRODUCT_NAME = ikwit;
-				PROVISIONING_PROFILE = "ce320489-2bab-4c87-8088-525cd51a81ac";
+				PROVISIONING_PROFILE = "";
 				SDKROOT = iphoneos;
 				WRAPPER_EXTENSION = app;
 			};

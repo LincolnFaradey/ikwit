@@ -7,7 +7,6 @@
 //
 
 #import "ANVLoginViewController.h"
-#import "ANVSocketConnectionSingleton.h"
 
 @interface ANVLoginViewController (){
     ANVSocketConnectionSingleton *connection;
@@ -17,6 +16,8 @@
 @property (weak, nonatomic) IBOutlet UITextField *passwordTextField;
 @property (weak, nonatomic) IBOutlet UIButton *signUpButton;
 @property (weak, nonatomic) IBOutlet UIButton *signInButton;
+
+- (void)loginSuccess:(NSNotification *)note;
 
 @end
 
@@ -38,6 +39,7 @@
 {
     [super viewDidLoad];
     connection = [ANVSocketConnectionSingleton sharedManager];
+    connection.delegate = self;
     [connection connectToPort:1477];
     _loginTextField.delegate = self;
     _passwordTextField.delegate = self;
@@ -60,12 +62,18 @@
 - (void)viewWillAppear:(BOOL)animated
 {
     [super viewWillAppear:animated];
-    
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(loginSuccess:)
+                                                 name:TCP_NOTIFICATION_SUCCESS
+                                               object:nil];
 }
 
 - (void)viewWillDisappear:(BOOL)animated
 {
     [super viewWillDisappear:animated];
+    [[NSNotificationCenter defaultCenter] removeObserver:self
+                                                    name:TCP_NOTIFICATION_SUCCESS
+                                                  object:nil];
 }
 
 
@@ -96,32 +104,6 @@
 
 #pragma mark - managing TCP connection
 
--(void)socket:(GCDAsyncSocket *)sock didReadData:(NSData *)data withTag:(long)tag {
-    
-    NSString *msg = [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding];
-    NSLog(@"%@", msg);
-    self.didGetResponse = [msg length] >= 40;
-    
-    if (self.didGetResponse)
-    {
-        NSUserDefaults *userDefault = [NSUserDefaults standardUserDefaults];
-        
-        [userDefault setObject:msg forKey:@"Token"];
-        if ([userDefault synchronize]){
-            [[NSNotificationCenter defaultCenter] postNotificationName:TCP_NOTIFICATION_SUCCESS object:nil];
-        }
-    }else{
-        UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"Incorrect user data"
-                                                            message:@"Wrong login/password"
-                                                           delegate:self
-                                                  cancelButtonTitle:nil
-                                                  otherButtonTitles:@"Ok", nil];
-        [self.timer invalidate];
-        [self enableAllFields:YES];
-        [self.indicatorView stopAnimating];
-        [alertView show];
-    }
-}
 
 - (void)loginSuccess:(NSNotification *)note
 {
@@ -139,7 +121,6 @@
 #pragma mark - View Control
 
 - (void)enableAllFields:(BOOL)response{
-//    _signUpButton.enabled = response;
     _signInButton.enabled = response;
     _loginTextField.enabled = response;
     _passwordTextField.enabled = response;
@@ -171,6 +152,35 @@
             self.mainView.frame = rect;
         }
     }];
+}
+
+
+#pragma mark - Socket delegate methods
+
+- (void)didReceiveData:(NSData *)data {
+    NSString *msg = [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding];
+    NSLog(@"%@", msg);
+    self.didGetResponse = [msg length] >= 40;
+
+    if (self.didGetResponse)
+    {
+        NSUserDefaults *userDefault = [NSUserDefaults standardUserDefaults];
+
+        [userDefault setObject:msg forKey:@"Token"];
+        if ([userDefault synchronize]){
+            [[NSNotificationCenter defaultCenter] postNotificationName:TCP_NOTIFICATION_SUCCESS object:nil];
+        }
+    }else{
+        UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"Incorrect user data"
+                                                            message:@"Wrong login/password"
+                                                           delegate:self
+                                                  cancelButtonTitle:nil
+                                                  otherButtonTitles:@"Ok", nil];
+        [self.timer invalidate];
+        [self enableAllFields:YES];
+        [self.indicatorView stopAnimating];
+        [alertView show];
+    }
 }
 
 

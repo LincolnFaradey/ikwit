@@ -10,7 +10,7 @@
 @class GCDAsyncSocket;
 
 @protocol ANVSocketConnectionSingletonDelegate
-
+@optional
 - (void)didReceiveData:(NSData *)data;
 
 @end
@@ -18,6 +18,8 @@
 @interface ANVSocketConnectionSingleton : NSObject {
     GCDAsyncSocket *socket;
 }
+
+@property (nonatomic, weak)id <ANVSocketConnectionSingletonDelegate> delegate;
 
 + (id)sharedManager;
 - (void)connectToPort:(UInt16)port;
