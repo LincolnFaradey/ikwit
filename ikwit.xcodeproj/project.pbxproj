@@ -77,7 +77,7 @@
 		7F71BE031A00FC5C00AADD1B /* ANVKeyboardToolBar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ANVKeyboardToolBar.m; path = View/ANVKeyboardToolBar.m; sourceTree = "<group>"; };
 		7F73533B19B2587A00A81612 /* ANVAskViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ANVAskViewController.h; path = Controllers/ANVAskViewController.h; sourceTree = "<group>"; };
 		7F73533C19B2587A00A81612 /* ANVAskViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ANVAskViewController.m; path = Controllers/ANVAskViewController.m; sourceTree = "<group>"; };
-		7F7C4F6D1A4A77C500B668BA /* ANVAdditionalMethods.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ANVAdditionalMethods.h; path = ikwitMVC/ANVAdditionalMethods.h; sourceTree = "<group>"; };
+		7F7C4F6E1A4AF2FE00B668BA /* ANVAdditionalMethods.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ANVAdditionalMethods.h; path = ikwitMVC/ANVAdditionalMethods.h; sourceTree = "<group>"; };
 		7FA1360E196B8B62003B071D /* ikwit.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ikwit.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7FA13611196B8B62003B071D /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		7FA13613196B8B62003B071D /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -181,6 +181,7 @@
 		7F7C4F691A4A76DB00B668BA /* WlcomeScreenControllers */ = {
 			isa = PBXGroup;
 			children = (
+				7F7C4F6E1A4AF2FE00B668BA /* ANVAdditionalMethods.h */,
 				7F5EEB9219E1FDB9007F514D /* ANVLoginToMain.h */,
 				7F5EEB9319E1FDB9007F514D /* ANVLoginToMain.m */,
 				7FA13651196B96F9003B071D /* ANVSignUpViewController.h */,
@@ -197,7 +198,6 @@
 		7FA13605196B8B62003B071D = {
 			isa = PBXGroup;
 			children = (
-				7F7C4F6D1A4A77C500B668BA /* ANVAdditionalMethods.h */,
 				7FFABC1A19D2479A00983E81 /* ANVDetailedController.h */,
 				7FFABC1B19D2479A00983E81 /* ANVDetailedController.m */,
 				7FA13617196B8B62003B071D /* ikwitMVC */,

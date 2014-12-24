@@ -120,11 +120,11 @@
 
 #pragma mark - View Control
 
-- (void)enableAllFields:(BOOL)response{
-    _signInButton.enabled = response;
-    _loginTextField.enabled = response;
-    _passwordTextField.enabled = response;
-}
+//- (void)enableAllFields:(BOOL)response{
+//    _signInButton.enabled = response;
+//    _loginTextField.enabled = response;
+//    _passwordTextField.enabled = response;
+//}
 
 - (void)keyboardWillShow:(NSNotification *)notification
 {

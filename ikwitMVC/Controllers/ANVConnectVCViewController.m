@@ -69,6 +69,11 @@
 }
 
 - (void)enableAllFields:(BOOL)response{
+    for (UIView* subView in self.view.subviews) {
+        if ([subView isKindOfClass:[UITextField class]] || [subView isKindOfClass:[UIButton class]]) {
+            subView.userInteractionEnabled = response;
+        }
+    }
 }
 
 - (void)viewWillAppear:(BOOL)animated
