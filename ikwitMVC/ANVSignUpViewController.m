@@ -21,8 +21,6 @@
 @property (weak, nonatomic) IBOutlet UITextField *passwordTF;
 @property (weak, nonatomic) IBOutlet UITextField *conf_passwordTF;
 
-@property (weak, nonatomic) IBOutlet UIButton *sign_up_button;
-
 @end
 
 @implementation ANVSignUpViewController
@@ -46,9 +44,6 @@
     _passwordTF.delegate = self;
     _conf_passwordTF.delegate = self;
     
-    [_sign_up_button addTarget:self
-                        action:@selector(signUpPressed:)
-              forControlEvents:UIControlEventTouchDown];
     self.view.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"bg2"]];
 }
 
@@ -57,9 +52,7 @@
 {
     [super didReceiveMemoryWarning];
 }
-
-- (void)signUpPressed:(id)sender
-{
+- (IBAction)signUpPressed:(id)sender {
     NSData *data = [self prepareForServer];
     if (data) {
         [connection readAndWriteDataToSocket:data];
@@ -75,6 +68,7 @@
         [alert show];
     }
 }
+
 
 - (NSData*)prepareForServer
 {

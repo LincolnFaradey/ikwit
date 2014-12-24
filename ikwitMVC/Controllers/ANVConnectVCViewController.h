@@ -7,7 +7,6 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "GCDAsyncSocket.h"
 #import "ANVAdditionalMethods.h"
 
 static NSString *TCP_NOTIFICATION_SUCCESS = @"Success";
@@ -15,7 +14,6 @@ static NSString *TCP_NOTIFICATION_SUCCESS = @"Success";
 @interface ANVConnectVCViewController : UIViewController
 
 @property (strong, nonatomic)UIView *mainView;
-@property (strong, nonatomic)GCDAsyncSocket *socket;
 @property (retain, nonatomic)UIActivityIndicatorView *indicatorView;
 @property (assign, nonatomic)BOOL didGetResponse;
 @property (nonatomic, weak)NSTimer *timer;

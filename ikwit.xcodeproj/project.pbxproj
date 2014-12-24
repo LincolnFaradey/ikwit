@@ -183,12 +183,12 @@
 			children = (
 				7F5EEB9219E1FDB9007F514D /* ANVLoginToMain.h */,
 				7F5EEB9319E1FDB9007F514D /* ANVLoginToMain.m */,
-				7F4C97061A1D4A790040F644 /* ANVConnectVCViewController.m */,
 				7FA13651196B96F9003B071D /* ANVSignUpViewController.h */,
 				7FA13652196B96F9003B071D /* ANVSignUpViewController.m */,
 				7FA1364E196B95FF003B071D /* ANVLoginViewController.h */,
 				7FA1364F196B95FF003B071D /* ANVLoginViewController.m */,
 				7F4C97051A1D4A790040F644 /* ANVConnectVCViewController.h */,
+				7F4C97061A1D4A790040F644 /* ANVConnectVCViewController.m */,
 			);
 			name = WlcomeScreenControllers;
 			path = ..;

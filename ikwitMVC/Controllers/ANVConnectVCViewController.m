@@ -14,15 +14,11 @@
 
 @implementation ANVConnectVCViewController
 
-@synthesize socket;
 @synthesize indicatorView;
 
 - (void)viewDidLoad {
     [super viewDidLoad];
     _mainView = self.view;
-    socket = [[GCDAsyncSocket alloc] initWithDelegate:self
-                                        delegateQueue:dispatch_get_main_queue()];
-    socket.delegate = self;
 }
 
 - (void)didReceiveMemoryWarning {
@@ -54,9 +50,7 @@
     [alert show];
 }
 
-
 #pragma mark - Keyboard Control
-
 -(BOOL)textFieldShouldReturn:(UITextField*)textField;
 {
     NSInteger nextTag = textField.tag + 1;
@@ -102,7 +96,6 @@
     [[NSNotificationCenter defaultCenter] removeObserver:self
                                                     name:UIKeyboardWillHideNotification
                                                   object:nil];
-    [socket disconnect];
 }
 
 
